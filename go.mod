@@ -3,7 +3,7 @@ module github.com/plexusone/omnillm
 go 1.25.0
 
 require (
-	github.com/grokify/mogo v0.73.3
+	github.com/grokify/mogo v0.73.4
 	github.com/grokify/sogo v0.14.0
 	google.golang.org/genai v1.49.0
 )
