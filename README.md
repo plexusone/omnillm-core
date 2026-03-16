@@ -25,11 +25,11 @@
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
  [license-url]: https://github.com/plexusone/omnillm/blob/master/LICENSE
 
-OmniLLM is a unified Go SDK that provides a consistent interface for interacting with multiple Large Language Model (LLM) providers including OpenAI, Anthropic (Claude), Google Gemini, X.AI (Grok), and Ollama. It implements the Chat Completions API pattern and offers both synchronous and streaming capabilities. Additional providers like AWS Bedrock are available as [external modules](#external-providers).
+OmniLLM is a unified Go SDK that provides a consistent interface for interacting with multiple Large Language Model (LLM) providers including OpenAI, Anthropic (Claude), Google Gemini, X.AI (Grok), GLM (Zhipu AI), Kimi (Moonshot AI), Qwen (Alibaba Cloud), and Ollama. It implements the Chat Completions API pattern and offers both synchronous and streaming capabilities. Additional providers like AWS Bedrock are available as [external modules](#external-providers).
 
 ## ✨ Features
 
-- **🔌 Multi-Provider Support**: OpenAI, Anthropic (Claude), Google Gemini, X.AI (Grok), Ollama, plus [external providers](#external-providers) (AWS Bedrock, etc.)
+- **🔌 Multi-Provider Support**: OpenAI, Anthropic (Claude), Google Gemini, X.AI (Grok), GLM (Zhipu AI), Kimi (Moonshot AI), Qwen (Alibaba Cloud), Ollama, plus [external providers](#external-providers) (AWS Bedrock, etc.)
 - **🎯 Unified API**: Same interface across all providers
 - **📡 Streaming Support**: Real-time response streaming for all providers
 - **🧠 Conversation Memory**: Persistent conversation history using Key-Value Stores
@@ -75,6 +75,9 @@ omnillm/
 │   │   └── *_test.go    # Provider and integration tests
 │   ├── gemini/          # Google Gemini implementation
 │   ├── xai/             # X.AI Grok implementation
+│   ├── glm/             # Zhipu AI GLM implementation
+│   ├── kimi/            # Moonshot AI Kimi implementation
+│   ├── qwen/            # Alibaba Cloud Qwen implementation
 │   └── ollama/          # Ollama implementation
 └── testing/             # 🧪 Test utilities
     └── mock_kvs.go      # Mock KVS for memory testing
@@ -224,6 +227,45 @@ See [External Providers](#external-providers) for more details.
 client, err := omnillm.NewClient(omnillm.ClientConfig{
     Providers: []omnillm.ProviderConfig{
         {Provider: omnillm.ProviderNameXAI, APIKey: "your-xai-api-key"},
+    },
+})
+```
+
+### GLM (Zhipu AI)
+
+- **Models**: GLM-5, GLM-4.7, GLM-4.6, GLM-4.5 series
+- **Features**: Chat completions, streaming, OpenAI-compatible API, thinking modes, up to 200K context
+
+```go
+client, err := omnillm.NewClient(omnillm.ClientConfig{
+    Providers: []omnillm.ProviderConfig{
+        {Provider: omnillm.ProviderNameGLM, APIKey: "your-glm-api-key"},
+    },
+})
+```
+
+### Kimi (Moonshot AI)
+
+- **Models**: Kimi K2.5, Kimi K2 series, Moonshot V1 (8k/32k/128k)
+- **Features**: Chat completions, streaming, OpenAI-compatible API, up to 256K context, vision support
+
+```go
+client, err := omnillm.NewClient(omnillm.ClientConfig{
+    Providers: []omnillm.ProviderConfig{
+        {Provider: omnillm.ProviderNameKimi, APIKey: "your-kimi-api-key"},
+    },
+})
+```
+
+### Qwen (Alibaba Cloud)
+
+- **Models**: Qwen3 Max, QwQ, Qwen3.5, Qwen3, Qwen2.5 series
+- **Features**: Chat completions, streaming, OpenAI-compatible API, thinking modes, wide global availability
+
+```go
+client, err := omnillm.NewClient(omnillm.ClientConfig{
+    Providers: []omnillm.ProviderConfig{
+        {Provider: omnillm.ProviderNameQwen, APIKey: "your-qwen-api-key"},
     },
 })
 ```
@@ -767,9 +809,12 @@ go test ./... -short -cover
 ANTHROPIC_API_KEY=your-key go test ./providers/anthropic -v
 OPENAI_API_KEY=your-key go test ./providers/openai -v
 XAI_API_KEY=your-key go test ./providers/xai -v
+GLM_API_KEY=your-key go test ./providers/glm -v
+KIMI_API_KEY=your-key go test ./providers/kimi -v
+QWEN_API_KEY=your-key go test ./providers/qwen -v
 
 # Run all tests including integration
-ANTHROPIC_API_KEY=your-key OPENAI_API_KEY=your-key XAI_API_KEY=your-key go test ./... -v
+ANTHROPIC_API_KEY=your-key OPENAI_API_KEY=your-key XAI_API_KEY=your-key GLM_API_KEY=your-key KIMI_API_KEY=your-key QWEN_API_KEY=your-key go test ./... -v
 ```
 
 ### Test Coverage
@@ -869,10 +914,14 @@ go run examples/custom_provider/main.go
 ## 🔧 Configuration
 
 ### Environment Variables
+
 - `OPENAI_API_KEY`: Your OpenAI API key
 - `ANTHROPIC_API_KEY`: Your Anthropic API key
 - `GEMINI_API_KEY`: Your Google Gemini API key
 - `XAI_API_KEY`: Your X.AI API key
+- `GLM_API_KEY`: Your Zhipu AI GLM API key
+- `KIMI_API_KEY`: Your Moonshot AI Kimi API key
+- `QWEN_API_KEY`: Your Alibaba Cloud Qwen API key
 
 ### Advanced Configuration
 
@@ -1163,6 +1212,9 @@ To add a built-in provider to the core library, follow the same structure as exi
 | Anthropic | Claude-Opus-4.1, Claude-Opus-4, Claude-Sonnet-4, Claude-3.7-Sonnet, Claude-3.5-Haiku | Chat, Streaming, System messages |
 | Gemini | Gemini-2.5-Pro, Gemini-2.5-Flash, Gemini-1.5-Pro, Gemini-1.5-Flash | Chat, Streaming |
 | X.AI | Grok-4.1-Fast, Grok-4, Grok-4-Fast, Grok-Code-Fast, Grok-3, Grok-3-Mini, Grok-2 | Chat, Streaming, 2M context, Tool calling |
+| GLM | GLM-5, GLM-4.7, GLM-4.6, GLM-4.5 series | Chat, Streaming, Thinking modes |
+| Kimi | Kimi K2.5, K2 series, Moonshot V1 | Chat, Streaming, 256K context, Vision |
+| Qwen | Qwen3 Max, QwQ, Qwen3.5, Qwen3, Qwen2.5 series | Chat, Streaming, Thinking modes |
 | Ollama | Llama 3, Mistral, CodeLlama, Gemma, Qwen2.5, DeepSeek-Coder | Chat, Streaming, Local inference |
 | Bedrock* | Claude models, Titan models | Chat, Multiple model families |
 

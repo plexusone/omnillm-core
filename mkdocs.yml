@@ -50,6 +50,9 @@ nav:
       - Anthropic: providers/anthropic.md
       - Google Gemini: providers/gemini.md
       - X.AI (Grok): providers/xai.md
+      - GLM (Zhipu AI): providers/glm.md
+      - Kimi (Moonshot AI): providers/kimi.md
+      - Qwen (Alibaba Cloud): providers/qwen.md
       - Ollama: providers/ollama.md
       - AWS Bedrock: providers/bedrock.md
       - Custom Providers: providers/custom.md
@@ -67,6 +70,7 @@ nav:
   - API Reference: https://pkg.go.dev/github.com/plexusone/omnillm
   - Releases:
       - Changelog: releases/changelog.md
+      - v0.14.0: releases/v0.14.0.md
       - v0.13.0: releases/v0.13.0.md
       - v0.12.0: releases/v0.12.0.md
       - v0.11.0: releases/v0.11.0.md

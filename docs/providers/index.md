@@ -10,6 +10,9 @@ OmniLLM supports multiple LLM providers through a unified interface. Each provid
 | [Anthropic](anthropic.md) | Built-in | Claude Opus 4, Sonnet 4, Claude 3.x series |
 | [Google Gemini](gemini.md) | Built-in | Gemini 2.5/1.5 Pro and Flash |
 | [X.AI](xai.md) | Built-in | Grok 4, Grok 3, 2M context window |
+| [GLM](glm.md) | Built-in | Zhipu AI GLM-5, GLM-4.7, GLM-4.5 series |
+| [Kimi](kimi.md) | Built-in | Moonshot AI Kimi K2.5, K2, Moonshot V1 |
+| [Qwen](qwen.md) | Built-in | Alibaba Cloud Qwen3, QwQ, Qwen2.5 |
 | [Ollama](ollama.md) | Built-in | Local models (Llama, Mistral, etc.) |
 
 ## External Providers
@@ -45,5 +48,8 @@ response, err := client.CreateChatCompletion(ctx, request)
 | Anthropic | Claude Opus 4, Sonnet 4 | 200K | Chat, Streaming, System |
 | Gemini | Gemini 2.5 Pro/Flash | 1M-2M | Chat, Streaming |
 | X.AI | Grok 4, Grok 3 | 128K-2M | Chat, Streaming, Tools |
+| GLM | GLM-5, GLM-4.7, GLM-4.5 | 128K-200K | Chat, Streaming, Thinking |
+| Kimi | Kimi K2.5, Moonshot V1 | 8K-256K | Chat, Streaming, Vision |
+| Qwen | Qwen3, QwQ, Qwen2.5 | 128K-1M | Chat, Streaming, Thinking |
 | Ollama | Llama 3, Mistral | Varies | Chat, Streaming, Local |
 | Bedrock | Claude, Titan | Varies | Chat |

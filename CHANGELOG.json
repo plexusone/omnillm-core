@@ -6,6 +6,39 @@
   "commitConvention": "conventional",
   "releases": [
     {
+      "version": "v0.14.0",
+      "date": "2026-03-16",
+      "highlights": [
+        { "description": "Three new Chinese LLM providers: GLM (Zhipu AI), Kimi (Moonshot AI), and Qwen (Alibaba Cloud)" },
+        { "description": "Provider conformance test package for standardized testing across all providers" }
+      ],
+      "added": [
+        { "description": "**GLM Provider**: Zhipu AI BigModel support with GLM-5, GLM-4.7, GLM-4.5 series and streaming", "commit": "b7f0188" },
+        { "description": "**Kimi Provider**: Moonshot AI support with Kimi K2.5, K2 series and Moonshot V1 models", "commit": "b7f0188" },
+        { "description": "**Qwen Provider**: Alibaba Cloud Tongyi Qianwen support with Qwen3, QwQ, and Qwen2.5 series", "commit": "b7f0188" },
+        { "description": "`ProviderNameGLM`, `ProviderNameKimi`, `ProviderNameQwen` provider constants", "commit": "b7f0188" },
+        { "description": "`EnvVarGLMAPIKey`, `EnvVarKimiAPIKey`, `EnvVarQwenAPIKey` environment variable constants", "commit": "b7f0188" },
+        { "description": "Model constants in `models/` package for GLM, Kimi, and Qwen models", "commit": "b7f0188" },
+        { "description": "`provider/providertest` package for standardized provider conformance testing", "commit": "fc4b2be" },
+        { "description": "Conformance tests for all 6 built-in providers (OpenAI, Anthropic, X.AI, GLM, Kimi, Qwen)", "commit": "fc4b2be" }
+      ],
+      "fixed": [
+        { "description": "Scanner buffer size limits in GLM and Kimi streaming (64KB initial, 1MB max) to handle large SSE payloads", "commit": "07b9f00" },
+        { "description": "Empty choices error handling in GLM, Kimi, Qwen adapters to return explicit errors instead of nil", "commit": "07b9f00" },
+        { "description": "`unparam` lint issues in provider test files by using `testModel` constants", "commit": "8a13e4e" },
+        { "description": "gofmt formatting in constants.go", "commit": "8a79375" }
+      ],
+      "changed": [
+        { "description": "CI workflow files renamed for specificity", "commit": "dcdeb52" },
+        { "description": "CI workflows updated to use shared workflow templates", "commit": "fb92cb2" },
+        { "description": "LICENSE copyright year updated", "commit": "8080991" }
+      ],
+      "dependencies": [
+        { "description": "`github.com/grokify/mogo` upgraded from 0.73.2 to 0.73.5", "commit": "b2279c1" },
+        { "description": "`google.golang.org/genai` upgraded from 1.48.0 to 1.50.0", "commit": "1a0f545" }
+      ]
+    },
+    {
       "version": "v0.13.0",
       "date": "2026-02-28",
       "highlights": [
