@@ -469,6 +469,12 @@ func buildProviderFromConfig(config ProviderConfig) (provider.Provider, error) {
 		return newGeminiProvider(config)
 	case ProviderNameXAI:
 		return newXAIProvider(config)
+	case ProviderNameKimi:
+		return newKimiProvider(config)
+	case ProviderNameGLM:
+		return newGLMProvider(config)
+	case ProviderNameQwen:
+		return newQwenProvider(config)
 	case ProviderNameBedrock:
 		return nil, ErrBedrockExternal
 	default:

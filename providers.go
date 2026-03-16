@@ -6,8 +6,11 @@ import (
 	"github.com/plexusone/omnillm/provider"
 	"github.com/plexusone/omnillm/providers/anthropic"
 	"github.com/plexusone/omnillm/providers/gemini"
+	"github.com/plexusone/omnillm/providers/glm"
+	"github.com/plexusone/omnillm/providers/kimi"
 	"github.com/plexusone/omnillm/providers/ollama"
 	"github.com/plexusone/omnillm/providers/openai"
+	"github.com/plexusone/omnillm/providers/qwen"
 	"github.com/plexusone/omnillm/providers/xai"
 )
 
@@ -58,4 +61,28 @@ func newXAIProvider(config ProviderConfig) (provider.Provider, error) {
 		return nil, ErrEmptyAPIKey
 	}
 	return xai.NewProvider(config.APIKey, config.BaseURL, getHTTPClientFromProviderConfig(config)), nil
+}
+
+// newKimiProvider creates a new Kimi (Moonshot AI) provider adapter
+func newKimiProvider(config ProviderConfig) (provider.Provider, error) {
+	if config.APIKey == "" {
+		return nil, ErrEmptyAPIKey
+	}
+	return kimi.NewProvider(config.APIKey, config.BaseURL, getHTTPClientFromProviderConfig(config)), nil
+}
+
+// newGLMProvider creates a new GLM (Zhipu AI) provider adapter
+func newGLMProvider(config ProviderConfig) (provider.Provider, error) {
+	if config.APIKey == "" {
+		return nil, ErrEmptyAPIKey
+	}
+	return glm.NewProvider(config.APIKey, config.BaseURL, getHTTPClientFromProviderConfig(config)), nil
+}
+
+// newQwenProvider creates a new Qwen (Alibaba Cloud) provider adapter
+func newQwenProvider(config ProviderConfig) (provider.Provider, error) {
+	if config.APIKey == "" {
+		return nil, ErrEmptyAPIKey
+	}
+	return qwen.NewProvider(config.APIKey, config.BaseURL, getHTTPClientFromProviderConfig(config)), nil
 }
