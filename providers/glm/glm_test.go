@@ -14,6 +14,9 @@ import (
 	"github.com/plexusone/omnillm/provider"
 )
 
+// testModel is the model used in unit tests
+const testModel = "glm-4.7-flash"
+
 // newTestServer creates a mock HTTP server that returns the given response JSON and status code.
 func newTestServer(t *testing.T, statusCode int, responseBody string) *httptest.Server {
 	t.Helper()
@@ -25,12 +28,12 @@ func newTestServer(t *testing.T, statusCode int, responseBody string) *httptest.
 }
 
 // chatCompletionResponse builds a valid GLM completion JSON response.
-func chatCompletionResponse(model, content string) string {
+func chatCompletionResponse(content string) string {
 	return `{
 		"id": "test-id-123",
 		"object": "chat.completion",
 		"created": 1700000000,
-		"model": "` + model + `",
+		"model": "` + testModel + `",
 		"choices": [{
 			"index": 0,
 			"message": {"role": "assistant", "content": "` + content + `"},
@@ -41,10 +44,10 @@ func chatCompletionResponse(model, content string) string {
 }
 
 // streamingResponse builds a mock SSE streaming body.
-func streamingResponse(model string) string {
-	chunk1 := `{"id":"chunk-1","object":"chat.completion.chunk","created":1700000000,"model":"` + model + `","choices":[{"index":0,"delta":{"role":"assistant","content":"Hello"},"finish_reason":null}]}`
-	chunk2 := `{"id":"chunk-2","object":"chat.completion.chunk","created":1700000000,"model":"` + model + `","choices":[{"index":0,"delta":{"content":" world"},"finish_reason":null}]}`
-	chunk3 := `{"id":"chunk-3","object":"chat.completion.chunk","created":1700000000,"model":"` + model + `","choices":[{"index":0,"delta":{},"finish_reason":"stop"}]}`
+func streamingResponse() string {
+	chunk1 := `{"id":"chunk-1","object":"chat.completion.chunk","created":1700000000,"model":"` + testModel + `","choices":[{"index":0,"delta":{"role":"assistant","content":"Hello"},"finish_reason":null}]}`
+	chunk2 := `{"id":"chunk-2","object":"chat.completion.chunk","created":1700000000,"model":"` + testModel + `","choices":[{"index":0,"delta":{"content":" world"},"finish_reason":null}]}`
+	chunk3 := `{"id":"chunk-3","object":"chat.completion.chunk","created":1700000000,"model":"` + testModel + `","choices":[{"index":0,"delta":{},"finish_reason":"stop"}]}`
 	return "data: " + chunk1 + "\n\ndata: " + chunk2 + "\n\ndata: " + chunk3 + "\n\ndata: [DONE]\n\n"
 }
 
@@ -99,7 +102,7 @@ func TestGLMClient_CreateCompletion_ValidationErrors(t *testing.T) {
 }
 
 func TestGLMClient_CreateCompletion_Success(t *testing.T) {
-	srv := newTestServer(t, http.StatusOK, chatCompletionResponse("glm-4.7-flash", "test successful"))
+	srv := newTestServer(t, http.StatusOK, chatCompletionResponse("test successful"))
 	defer srv.Close()
 
 	c := New("test-api-key", srv.URL, nil)
@@ -147,7 +150,7 @@ func TestGLMClient_CreateCompletion_AuthorizationHeader(t *testing.T) {
 	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		capturedHeader = r.Header.Get("Authorization")
 		w.Header().Set("Content-Type", "application/json")
-		_, _ = w.Write([]byte(chatCompletionResponse("glm-4.7-flash", "ok")))
+		_, _ = w.Write([]byte(chatCompletionResponse("ok")))
 	}))
 	defer srv.Close()
 
@@ -172,7 +175,7 @@ func TestGLMClient_CreateCompletion_StreamSetToFalse(t *testing.T) {
 		_ = json.Unmarshal(bodyBytes, &body)
 		capturedStream = body.Stream
 		w.Header().Set("Content-Type", "application/json")
-		_, _ = w.Write([]byte(chatCompletionResponse("glm-4.7-flash", "ok")))
+		_, _ = w.Write([]byte(chatCompletionResponse("ok")))
 	}))
 	defer srv.Close()
 
@@ -209,16 +212,16 @@ func TestGLMClient_CreateCompletionStream_ValidationErrors(t *testing.T) {
 	})
 }
 
-func newStreamServer(t *testing.T, model string) *httptest.Server {
+func newStreamServer(t *testing.T) *httptest.Server {
 	t.Helper()
 	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/event-stream")
-		_, _ = w.Write([]byte(streamingResponse(model)))
+		_, _ = w.Write([]byte(streamingResponse()))
 	}))
 }
 
 func TestGLMClient_CreateCompletionStream_Success(t *testing.T) {
-	srv := newStreamServer(t, "glm-4.7-flash")
+	srv := newStreamServer(t)
 	defer srv.Close()
 
 	c := New("key", srv.URL, nil)
@@ -256,7 +259,7 @@ func TestGLMClient_CreateCompletionStream_Success(t *testing.T) {
 }
 
 func TestGLMStream_Close(t *testing.T) {
-	srv := newStreamServer(t, "glm-4.7-flash")
+	srv := newStreamServer(t)
 	defer srv.Close()
 
 	c := New("key", srv.URL, nil)
@@ -277,7 +280,7 @@ func TestGLMStream_Close(t *testing.T) {
 }
 
 func TestGLMStream_RecvAfterClose(t *testing.T) {
-	srv := newStreamServer(t, "glm-4.7-flash")
+	srv := newStreamServer(t)
 	defer srv.Close()
 
 	c := New("key", srv.URL, nil)
@@ -307,7 +310,7 @@ func TestGLMProvider_Name(t *testing.T) {
 }
 
 func TestGLMProvider_CreateChatCompletion_Success(t *testing.T) {
-	srv := newTestServer(t, http.StatusOK, chatCompletionResponse("glm-4.7-flash", "hello there"))
+	srv := newTestServer(t, http.StatusOK, chatCompletionResponse("hello there"))
 	defer srv.Close()
 
 	p := NewProvider("key", srv.URL, nil)
@@ -335,7 +338,7 @@ func TestGLMProvider_CreateChatCompletion_Success(t *testing.T) {
 }
 
 func TestGLMProvider_CreateChatCompletionStream_Success(t *testing.T) {
-	srv := newStreamServer(t, "glm-4.7-flash")
+	srv := newStreamServer(t)
 	defer srv.Close()
 
 	p := NewProvider("key", srv.URL, nil)
@@ -381,22 +384,22 @@ func TestGLMProvider_CreateChatCompletion_EmptyChoices(t *testing.T) {
 	defer srv.Close()
 
 	p := NewProvider("key", srv.URL, nil)
-	resp, err := p.CreateChatCompletion(context.Background(), &provider.ChatCompletionRequest{
-		Model:    "glm-4.7-flash",
+	_, err := p.CreateChatCompletion(context.Background(), &provider.ChatCompletionRequest{
+		Model:    testModel,
 		Messages: []provider.Message{{Role: provider.RoleUser, Content: "hi"}},
 	})
-	if err != nil {
-		t.Fatalf("unexpected error: %v", err)
+	if err == nil {
+		t.Fatal("expected error for empty choices, got nil")
 	}
-	if resp != nil {
-		t.Errorf("expected nil response for empty choices, got %+v", resp)
+	if !strings.Contains(err.Error(), "empty choices") {
+		t.Errorf("expected 'empty choices' error, got: %v", err)
 	}
 }
 
 // ─── CustomHTTPClient Test ───────────────────────────────────────────────────
 
 func TestGLMClient_CustomHTTPClient(t *testing.T) {
-	srv := newTestServer(t, http.StatusOK, chatCompletionResponse("glm-4.7-flash", "ok"))
+	srv := newTestServer(t, http.StatusOK, chatCompletionResponse("ok"))
 	defer srv.Close()
 
 	custom := &http.Client{Timeout: 30 * time.Second}
