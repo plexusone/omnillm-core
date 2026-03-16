@@ -122,9 +122,14 @@ func (c *Client) CreateCompletionStream(ctx context.Context, req *Request) (*Str
 		return nil, c.handleErrorResponse(resp)
 	}
 
+	scanner := bufio.NewScanner(resp.Body)
+	// Increase the scanner buffer and max token size to handle large SSE events.
+	// Default max token size is 64K, which is too small for some streaming responses.
+	scanner.Buffer(make([]byte, 64*1024), 10*1024*1024) // 10MB max token size
+
 	return &Stream{
 		response: resp,
-		scanner:  bufio.NewScanner(resp.Body),
+		scanner:  scanner,
 	}, nil
 }
 
