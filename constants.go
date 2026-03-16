@@ -108,12 +108,12 @@ const (
 	ModelGrokVision = models.GrokVision
 
 	// Kimi / Moonshot AI Models - Re-exported from models package
-	ModelKimiK2_5           = models.KimiK2_5
-	ModelKimiK2Turbo        = models.KimiK2Turbo
-	ModelKimiK2Thinking     = models.KimiK2Thinking
-	ModelMoonshotV1_8K      = models.MoonshotV1_8K
-	ModelMoonshotV1_32K     = models.MoonshotV1_32K
-	ModelMoonshotV1_128K    = models.MoonshotV1_128K
+	ModelKimiK2_5        = models.KimiK2_5
+	ModelKimiK2Turbo     = models.KimiK2Turbo
+	ModelKimiK2Thinking  = models.KimiK2Thinking
+	ModelMoonshotV1_8K   = models.MoonshotV1_8K
+	ModelMoonshotV1_32K  = models.MoonshotV1_32K
+	ModelMoonshotV1_128K = models.MoonshotV1_128K
 
 	// Zhipu AI GLM Models - Re-exported from models package
 	ModelGLM5         = models.GLM5
