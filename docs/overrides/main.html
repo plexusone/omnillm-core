@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block header %}
+<!-- PlexusOne Unified Navigation -->
+<nav class="plexus-nav" aria-label="PlexusOne main navigation">
+  <div class="plexus-nav-container">
+    <a href="https://plexusone.dev/" class="plexus-nav-brand">
+      <img src="https://plexusone.dev/icon.png" alt="PlexusOne" class="plexus-nav-logo">
+      <span class="plexus-nav-title">
+        <span class="plexus-nav-title-light">Plexus</span><span class="plexus-nav-title-gradient">One</span>
+      </span>
+    </a>
+
+    <div class="plexus-nav-links">
+      <!-- Products dropdown -->
+      <div class="plexus-nav-dropdown">
+        <button class="plexus-nav-link plexus-nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          Products
+          <svg class="plexus-nav-chevron" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        </button>
+        <div class="plexus-nav-dropdown-menu">
+          <a href="https://plexusone.dev/#products" class="plexus-nav-dropdown-item">Libraries</a>
+          <a href="https://plexusone.dev/specifications" class="plexus-nav-dropdown-item">Specifications</a>
+          <a href="https://plexusone.dev/applications" class="plexus-nav-dropdown-item">Applications</a>
+          <a href="https://plexusone.dev/integrations" class="plexus-nav-dropdown-item">Integrations</a>
+        </div>
+      </div>
+
+      <a href="https://plexusone.dev/projects" class="plexus-nav-link">Projects</a>
+
+      <!-- Developers dropdown -->
+      <div class="plexus-nav-dropdown">
+        <button class="plexus-nav-link plexus-nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          Developers
+          <svg class="plexus-nav-chevron" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        </button>
+        <div class="plexus-nav-dropdown-menu">
+          <a href="https://plexusone.dev/academy" class="plexus-nav-dropdown-item">Academy</a>
+          <a href="https://plexusone.dev/mcp" class="plexus-nav-dropdown-item">MCP</a>
+        </div>
+      </div>
+
+      <!-- Community dropdown -->
+      <div class="plexus-nav-dropdown">
+        <button class="plexus-nav-link plexus-nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          Community
+          <svg class="plexus-nav-chevron" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        </button>
+        <div class="plexus-nav-dropdown-menu">
+          <a href="https://plexusone.dev/blog" class="plexus-nav-dropdown-item">Blog</a>
+          <a href="https://plexusone.dev/releases" class="plexus-nav-dropdown-item">Releases</a>
+          <a href="https://plexusone.dev/#philosophy" class="plexus-nav-dropdown-item">Philosophy</a>
+        </div>
+      </div>
+
+      <a href="https://github.com/plexusone" target="_blank" rel="noopener noreferrer" class="plexus-nav-github">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button class="plexus-nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg class="plexus-nav-hamburger" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      <svg class="plexus-nav-close" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="plexus-nav-mobile-menu">
+    <div class="plexus-nav-mobile-section">
+      <span class="plexus-nav-mobile-label">Products</span>
+      <a href="https://plexusone.dev/#products" class="plexus-nav-mobile-link">Libraries</a>
+      <a href="https://plexusone.dev/specifications" class="plexus-nav-mobile-link">Specifications</a>
+      <a href="https://plexusone.dev/applications" class="plexus-nav-mobile-link">Applications</a>
+      <a href="https://plexusone.dev/integrations" class="plexus-nav-mobile-link">Integrations</a>
+    </div>
+    <div class="plexus-nav-mobile-section">
+      <a href="https://plexusone.dev/projects" class="plexus-nav-mobile-link">Projects</a>
+    </div>
+    <div class="plexus-nav-mobile-section">
+      <span class="plexus-nav-mobile-label">Developers</span>
+      <a href="https://plexusone.dev/academy" class="plexus-nav-mobile-link">Academy</a>
+      <a href="https://plexusone.dev/mcp" class="plexus-nav-mobile-link">MCP</a>
+    </div>
+    <div class="plexus-nav-mobile-section">
+      <span class="plexus-nav-mobile-label">Community</span>
+      <a href="https://plexusone.dev/blog" class="plexus-nav-mobile-link">Blog</a>
+      <a href="https://plexusone.dev/releases" class="plexus-nav-mobile-link">Releases</a>
+      <a href="https://plexusone.dev/#philosophy" class="plexus-nav-mobile-link">Philosophy</a>
+    </div>
+    <div class="plexus-nav-mobile-section">
+      <a href="https://github.com/plexusone" target="_blank" rel="noopener noreferrer" class="plexus-nav-mobile-link plexus-nav-mobile-github">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+// PlexusOne Navigation JavaScript
+(function() {
+  // Dropdown toggle
+  document.querySelectorAll('.plexus-nav-dropdown-trigger').forEach(function(trigger) {
+    trigger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var dropdown = this.parentElement;
+      var isOpen = dropdown.classList.contains('open');
+
+      // Close all dropdowns
+      document.querySelectorAll('.plexus-nav-dropdown').forEach(function(d) {
+        d.classList.remove('open');
+        d.querySelector('.plexus-nav-dropdown-trigger').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle current
+      if (!isOpen) {
+        dropdown.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // Close dropdowns on outside click
+  document.addEventListener('click', function() {
+    document.querySelectorAll('.plexus-nav-dropdown').forEach(function(d) {
+      d.classList.remove('open');
+      d.querySelector('.plexus-nav-dropdown-trigger').setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Mobile menu toggle
+  var mobileToggle = document.querySelector('.plexus-nav-mobile-toggle');
+  var mobileMenu = document.querySelector('.plexus-nav-mobile-menu');
+  var nav = document.querySelector('.plexus-nav');
+
+  if (mobileToggle && mobileMenu) {
+    mobileToggle.addEventListener('click', function() {
+      var isOpen = nav.classList.contains('mobile-open');
+      nav.classList.toggle('mobile-open');
+      this.setAttribute('aria-expanded', !isOpen);
+    });
+  }
+
+  // Close mobile menu on escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.plexus-nav-dropdown').forEach(function(d) {
+        d.classList.remove('open');
+      });
+      if (nav) nav.classList.remove('mobile-open');
+    }
+  });
+})();
+</script>
+
+{{ super() }}
+{% endblock %}
