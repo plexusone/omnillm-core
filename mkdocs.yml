@@ -29,7 +29,7 @@ theme:
     - content.code.copy
 
 extra_css:
-  - stylesheets/plexusone.css
+  - https://plexusone.dev/css/plexusone-mkdocs.css
 
 markdown_extensions:
   - pymdownx.highlight:
