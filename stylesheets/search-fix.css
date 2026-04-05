@@ -1,12 +1,22 @@
-/* Override MkDocs Material palette.css variables - match @media screen specificity */
+/* Override MkDocs Material palette.css variables with higher specificity */
 @media screen {
-  [data-md-color-scheme="slate"] {
+  body[data-md-color-scheme="slate"] {
     --md-default-fg-color: #f1f5f9;
     --md-default-fg-color--light: #94a3b8;
   }
+
+  body[data-md-color-scheme="default"] {
+    --md-default-fg-color: #1e293b;
+    --md-default-fg-color--light: #64748b;
+  }
 }
 
-/* Search input text color fix for dark mode */
+/* TEST: Red border on search form to confirm CSS is loading */
+.md-search__form {
+  border: 2px solid red !important;
+}
+
+/* Direct element overrides for search - dark mode */
 [data-md-color-scheme="slate"] .md-search__input {
   color: #f1f5f9 !important;
   -webkit-text-fill-color: #f1f5f9 !important;
@@ -18,19 +28,11 @@
   opacity: 1 !important;
 }
 
-/* Search icons - dark mode */
 [data-md-color-scheme="slate"] .md-search__icon.md-icon {
   color: #94a3b8 !important;
 }
 
-/* Search input text color fix for light mode */
-@media screen {
-  [data-md-color-scheme="default"] {
-    --md-default-fg-color: #1e293b;
-    --md-default-fg-color--light: #64748b;
-  }
-}
-
+/* Direct element overrides for search - light mode */
 [data-md-color-scheme="default"] .md-search__input {
   color: #1e293b !important;
   -webkit-text-fill-color: #1e293b !important;
