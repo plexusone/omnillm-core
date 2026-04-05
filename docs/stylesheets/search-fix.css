@@ -10,29 +10,21 @@
   opacity: 1 !important;
 }
 
-/* Search icons - dark mode */
-[data-md-color-scheme="slate"] .md-search__icon {
+/* Search icons - dark mode - set color for currentColor inheritance */
+[data-md-color-scheme="slate"] .md-search__icon.md-icon {
   color: #94a3b8 !important;
 }
 
-[data-md-color-scheme="slate"] .md-search__icon svg {
-  fill: #94a3b8 !important;
-}
-
-[data-md-color-scheme="slate"] .md-search__icon svg path {
-  fill: #94a3b8 !important;
-}
-
-[data-md-color-scheme="slate"] .md-header .md-search__icon {
+[data-md-color-scheme="slate"] .md-search__input ~ .md-search__icon {
   color: #94a3b8 !important;
 }
 
-[data-md-color-scheme="slate"] .md-header .md-search__icon svg {
-  fill: #94a3b8 !important;
+[data-md-color-scheme="slate"] label.md-search__icon.md-icon {
+  color: #94a3b8 !important;
 }
 
-[data-md-color-scheme="slate"] .md-header .md-search__icon svg path {
-  fill: #94a3b8 !important;
+[data-md-color-scheme="slate"] button.md-search__icon.md-icon {
+  color: #94a3b8 !important;
 }
 
 /* Search input text color fix for light mode */
@@ -48,14 +40,10 @@
 }
 
 /* Search icons - light mode */
-[data-md-color-scheme="default"] .md-search__icon {
+[data-md-color-scheme="default"] .md-search__icon.md-icon {
   color: #64748b !important;
 }
 
-[data-md-color-scheme="default"] .md-search__icon svg {
-  fill: #64748b !important;
-}
-
-[data-md-color-scheme="default"] .md-search__icon svg path {
-  fill: #64748b !important;
+[data-md-color-scheme="default"] .md-search__input ~ .md-search__icon {
+  color: #64748b !important;
 }
