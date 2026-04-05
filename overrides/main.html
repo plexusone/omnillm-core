@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+
+{% block header %}
+<!-- PlexusOne Unified Navigation -->
+<nav class="plexus-nav" aria-label="PlexusOne main navigation">
+  <div class="plexus-nav-container">
+    <a href="https://plexusone.dev/" class="plexus-nav-brand">
+      <img src="https://plexusone.dev/icon.png" alt="PlexusOne" class="plexus-nav-logo">
+      <span class="plexus-nav-title">
+        <span class="plexus-nav-title-light">Plexus</span><span class="plexus-nav-title-gradient">One</span>
+      </span>
+    </a>
+
+    <div class="plexus-nav-links" id="plexus-nav-desktop">
+      <!-- Populated by JavaScript from products.json -->
+      <!-- Fallback content shown until JS loads -->
+      <a href="https://plexusone.dev/#products" class="plexus-nav-link">Products</a>
+      <a href="https://plexusone.dev/projects" class="plexus-nav-link">Projects</a>
+      <a href="https://github.com/plexusone" target="_blank" rel="noopener noreferrer" class="plexus-nav-github">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button class="plexus-nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <svg class="plexus-nav-hamburger" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      <svg class="plexus-nav-close" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="plexus-nav-mobile-menu" id="plexus-nav-mobile">
+    <!-- Populated by JavaScript from products.json -->
+    <div class="plexus-nav-mobile-section">
+      <a href="https://plexusone.dev/#products" class="plexus-nav-mobile-link">Products</a>
+      <a href="https://plexusone.dev/projects" class="plexus-nav-mobile-link">Projects</a>
+    </div>
+    <div class="plexus-nav-mobile-section">
+      <a href="https://github.com/plexusone" target="_blank" rel="noopener noreferrer" class="plexus-nav-mobile-link plexus-nav-mobile-github">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+// PlexusOne Navigation - Dynamic menu from products.json
+(function() {
+  var BASE_URL = 'https://plexusone.dev';
+  var PRODUCTS_JSON_URL = BASE_URL + '/data/products.json';
+  var CHEVRON_SVG = '<svg class="plexus-nav-chevron" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>';
+  var GITHUB_SVG = '<svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>';
+
+  // Resolve URL (relative to BASE_URL or absolute)
+  function resolveUrl(url) {
+    if (!url) return '#';
+    if (url.startsWith('http')) return url;
+    if (url.startsWith('/')) return BASE_URL + url;
+    return BASE_URL + '/' + url;
+  }
+
+  // Filter products by category
+  function filterProducts(products, category) {
+    return products.filter(function(p) { return p.category === category && p.docsUrl; });
+  }
+
+  // Create dropdown HTML from items
+  function createDropdown(label, items) {
+    var html = '<div class="plexus-nav-dropdown">' +
+      '<button class="plexus-nav-link plexus-nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">' +
+      label + CHEVRON_SVG +
+      '</button>' +
+      '<div class="plexus-nav-dropdown-menu">';
+
+    items.forEach(function(item) {
+      html += '<a href="' + resolveUrl(item.url || item.docsUrl) + '" class="plexus-nav-dropdown-item">' +
+        (item.label || item.name) + '</a>';
+    });
+
+    html += '</div></div>';
+    return html;
+  }
+
+  // Create mobile section HTML
+  function createMobileSection(label, items) {
+    var html = '<div class="plexus-nav-mobile-section">';
+    if (label) {
+      html += '<span class="plexus-nav-mobile-label">' + label + '</span>';
+    }
+    items.forEach(function(item) {
+      html += '<a href="' + resolveUrl(item.url || item.docsUrl) + '" class="plexus-nav-mobile-link">' +
+        (item.label || item.name) + '</a>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  // Render navigation from products.json
+  function renderNavigation(data) {
+    var products = data.products;
+    var nav = data.navigation;
+    var desktopHtml = '';
+    var mobileHtml = '';
+
+    // Process navigation sections
+    nav.sections.forEach(function(section) {
+      if (section.type === 'dropdown') {
+        var items = [];
+
+        // If section has filter, get products by category
+        if (section.filter && section.filter.category) {
+          items = filterProducts(products, section.filter.category);
+        }
+        // If section has explicit items
+        else if (section.items) {
+          section.items.forEach(function(item) {
+            // Check if item has a filter to expand products
+            if (item.filter && item.filter.category) {
+              var filtered = filterProducts(products, item.filter.category);
+              // Add category header then products
+              items.push({ label: item.label, url: item.url, isHeader: true });
+              filtered.slice(0, 6).forEach(function(p) { items.push(p); }); // Limit to 6
+            } else {
+              items.push(item);
+            }
+          });
+        }
+
+        if (items.length > 0) {
+          desktopHtml += createDropdown(section.label, items);
+          mobileHtml += createMobileSection(section.label, items);
+        }
+      } else if (section.type === 'link') {
+        desktopHtml += '<a href="' + resolveUrl(section.url) + '" class="plexus-nav-link">' + section.label + '</a>';
+        mobileHtml += '<div class="plexus-nav-mobile-section"><a href="' + resolveUrl(section.url) + '" class="plexus-nav-mobile-link">' + section.label + '</a></div>';
+      }
+    });
+
+    // GitHub button
+    if (nav.external && nav.external.github) {
+      var gh = nav.external.github;
+      desktopHtml += '<a href="' + gh.url + '" target="_blank" rel="noopener noreferrer" class="plexus-nav-github">' + GITHUB_SVG + gh.label + '</a>';
+      mobileHtml += '<div class="plexus-nav-mobile-section"><a href="' + gh.url + '" target="_blank" rel="noopener noreferrer" class="plexus-nav-mobile-link plexus-nav-mobile-github">' + GITHUB_SVG + gh.label + '</a></div>';
+    }
+
+    // Update DOM
+    var desktopNav = document.getElementById('plexus-nav-desktop');
+    var mobileNav = document.getElementById('plexus-nav-mobile');
+    if (desktopNav) desktopNav.innerHTML = desktopHtml;
+    if (mobileNav) mobileNav.innerHTML = mobileHtml;
+
+    // Re-attach event listeners
+    attachEventListeners();
+  }
+
+  // Attach dropdown and mobile event listeners
+  function attachEventListeners() {
+    // Dropdown toggle
+    document.querySelectorAll('.plexus-nav-dropdown-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var dropdown = this.parentElement;
+        var isOpen = dropdown.classList.contains('open');
+
+        // Close all dropdowns
+        document.querySelectorAll('.plexus-nav-dropdown').forEach(function(d) {
+          d.classList.remove('open');
+          var t = d.querySelector('.plexus-nav-dropdown-trigger');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle current
+        if (!isOpen) {
+          dropdown.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Close dropdowns on outside click
+    document.addEventListener('click', function() {
+      document.querySelectorAll('.plexus-nav-dropdown').forEach(function(d) {
+        d.classList.remove('open');
+        var t = d.querySelector('.plexus-nav-dropdown-trigger');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Mobile menu toggle
+    var mobileToggle = document.querySelector('.plexus-nav-mobile-toggle');
+    var nav = document.querySelector('.plexus-nav');
+
+    if (mobileToggle && nav) {
+      // Remove existing listeners by cloning
+      var newToggle = mobileToggle.cloneNode(true);
+      mobileToggle.parentNode.replaceChild(newToggle, mobileToggle);
+
+      newToggle.addEventListener('click', function() {
+        var isOpen = nav.classList.contains('mobile-open');
+        nav.classList.toggle('mobile-open');
+        this.setAttribute('aria-expanded', !isOpen);
+      });
+    }
+
+    // Close mobile menu on escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.plexus-nav-dropdown').forEach(function(d) {
+          d.classList.remove('open');
+        });
+        if (nav) nav.classList.remove('mobile-open');
+      }
+    });
+  }
+
+  // Fetch and render products.json
+  fetch(PRODUCTS_JSON_URL)
+    .then(function(response) {
+      if (!response.ok) throw new Error('Failed to fetch products.json');
+      return response.json();
+    })
+    .then(function(data) {
+      renderNavigation(data);
+    })
+    .catch(function(err) {
+      console.warn('PlexusOne products.json fetch failed, using fallback:', err);
+      // Fallback is already in DOM, just attach listeners
+      attachEventListeners();
+    });
+
+  // Attach listeners for fallback content immediately
+  attachEventListeners();
+})();
+</script>
+
+{{ super() }}
+{% endblock %}

@@ -2,142 +2,142 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://plexusone.github.io/omnillm/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/architecture/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/testing/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/features/caching/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/features/fallback/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/features/memory/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/features/observability/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/features/retry/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/features/streaming/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/features/tokens/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/features/tools/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/getting-started/configuration/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/getting-started/installation/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/getting-started/quickstart/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/providers/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/providers/anthropic/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/providers/bedrock/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/providers/custom/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/providers/gemini/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/providers/glm/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/providers/kimi/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/providers/ollama/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/providers/openai/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/providers/qwen/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/providers/xai/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/releases/changelog/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/releases/v0.10.0/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/releases/v0.11.0/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/releases/v0.12.0/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/releases/v0.13.0/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/releases/v0.14.0/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/releases/v0.6.0/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/releases/v0.7.0/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/releases/v0.8.0/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
     <url>
          <loc>https://plexusone.github.io/omnillm/releases/v0.9.0/</loc>
-         <lastmod>2026-03-16</lastmod>
+         <lastmod>2026-04-05</lastmod>
     </url>
 </urlset>
