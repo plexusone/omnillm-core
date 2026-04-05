@@ -12,12 +12,39 @@
     </a>
 
     <div class="plexus-nav-links" id="plexus-nav-desktop">
-      <!-- Fallback content shown until JS loads -->
+      <!-- Products mega menu trigger -->
       <button class="plexus-nav-link plexus-nav-megamenu-trigger" aria-expanded="false" aria-haspopup="true">
         Products
         <svg class="plexus-nav-chevron" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
       </button>
+
       <a href="https://plexusone.dev/projects" class="plexus-nav-link">Projects</a>
+
+      <!-- Developers dropdown -->
+      <div class="plexus-nav-dropdown" data-dropdown="developers">
+        <button class="plexus-nav-link plexus-nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          Developers
+          <svg class="plexus-nav-chevron" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        </button>
+        <div class="plexus-nav-dropdown-menu">
+          <a href="https://plexusone.dev/academy" class="plexus-nav-dropdown-item">Academy</a>
+          <a href="https://plexusone.dev/mcp" class="plexus-nav-dropdown-item">MCP</a>
+        </div>
+      </div>
+
+      <!-- Community dropdown -->
+      <div class="plexus-nav-dropdown" data-dropdown="community">
+        <button class="plexus-nav-link plexus-nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+          Community
+          <svg class="plexus-nav-chevron" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+        </button>
+        <div class="plexus-nav-dropdown-menu">
+          <a href="https://plexusone.dev/blog" class="plexus-nav-dropdown-item">Blog</a>
+          <a href="https://plexusone.dev/releases" class="plexus-nav-dropdown-item">Releases</a>
+          <a href="https://plexusone.dev/#philosophy" class="plexus-nav-dropdown-item">Philosophy</a>
+        </div>
+      </div>
+
       <a href="https://github.com/plexusone" target="_blank" rel="noopener noreferrer" class="plexus-nav-github">
         <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         GitHub
@@ -70,6 +97,17 @@
       <a href="https://plexusone.dev/projects" class="plexus-nav-mobile-link">Projects</a>
     </div>
     <div class="plexus-nav-mobile-section">
+      <span class="plexus-nav-mobile-label">Developers</span>
+      <a href="https://plexusone.dev/academy" class="plexus-nav-mobile-link">Academy</a>
+      <a href="https://plexusone.dev/mcp" class="plexus-nav-mobile-link">MCP</a>
+    </div>
+    <div class="plexus-nav-mobile-section">
+      <span class="plexus-nav-mobile-label">Community</span>
+      <a href="https://plexusone.dev/blog" class="plexus-nav-mobile-link">Blog</a>
+      <a href="https://plexusone.dev/releases" class="plexus-nav-mobile-link">Releases</a>
+      <a href="https://plexusone.dev/#philosophy" class="plexus-nav-mobile-link">Philosophy</a>
+    </div>
+    <div class="plexus-nav-mobile-section">
       <a href="https://github.com/plexusone" target="_blank" rel="noopener noreferrer" class="plexus-nav-mobile-link plexus-nav-mobile-github">
         <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         GitHub
@@ -79,6 +117,14 @@
 </nav>
 
 <style>
+/* Import Inter font to match main site */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Apply Inter font to nav */
+.plexus-nav {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
 /* Mega Menu Styles */
 .plexus-megamenu {
   display: none;
@@ -348,11 +394,27 @@
       html += '</div>';
     });
 
-    // Add Projects and GitHub
+    // Add Projects
     html += '<div class="plexus-nav-mobile-section">';
     html += '<a href="' + BASE_URL + '/projects" class="plexus-nav-mobile-link">Projects</a>';
     html += '</div>';
 
+    // Add Developers section
+    html += '<div class="plexus-nav-mobile-section">';
+    html += '<span class="plexus-nav-mobile-label">Developers</span>';
+    html += '<a href="' + BASE_URL + '/academy" class="plexus-nav-mobile-link">Academy</a>';
+    html += '<a href="' + BASE_URL + '/mcp" class="plexus-nav-mobile-link">MCP</a>';
+    html += '</div>';
+
+    // Add Community section
+    html += '<div class="plexus-nav-mobile-section">';
+    html += '<span class="plexus-nav-mobile-label">Community</span>';
+    html += '<a href="' + BASE_URL + '/blog" class="plexus-nav-mobile-link">Blog</a>';
+    html += '<a href="' + BASE_URL + '/releases" class="plexus-nav-mobile-link">Releases</a>';
+    html += '<a href="' + BASE_URL + '/#philosophy" class="plexus-nav-mobile-link">Philosophy</a>';
+    html += '</div>';
+
+    // Add GitHub
     html += '<div class="plexus-nav-mobile-section">';
     html += '<a href="https://github.com/plexusone" target="_blank" rel="noopener noreferrer" class="plexus-nav-mobile-link plexus-nav-mobile-github">';
     html += '<svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>';
@@ -369,30 +431,74 @@
     var backdrop = document.querySelector('.plexus-megamenu-backdrop');
     var nav = document.querySelector('.plexus-nav');
     var mobileToggle = document.querySelector('.plexus-nav-mobile-toggle');
+    var dropdowns = document.querySelectorAll('.plexus-nav-dropdown');
+
+    // Helper to close all dropdowns
+    function closeAllDropdowns() {
+      dropdowns.forEach(function(d) {
+        d.classList.remove('open');
+        var t = d.querySelector('.plexus-nav-dropdown-trigger');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    // Helper to close mega menu
+    function closeMegaMenu() {
+      if (megamenu) megamenu.classList.remove('open');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    }
 
     // Mega menu toggle
     if (trigger && megamenu) {
       trigger.addEventListener('click', function(e) {
         e.stopPropagation();
+        closeAllDropdowns();
         var isOpen = megamenu.classList.contains('open');
         megamenu.classList.toggle('open');
         trigger.setAttribute('aria-expanded', !isOpen);
       });
     }
 
+    // Dropdown toggles (Developers, Community)
+    dropdowns.forEach(function(dropdown) {
+      var dropdownTrigger = dropdown.querySelector('.plexus-nav-dropdown-trigger');
+      if (dropdownTrigger) {
+        dropdownTrigger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          closeMegaMenu();
+          var isOpen = dropdown.classList.contains('open');
+          closeAllDropdowns();
+          if (!isOpen) {
+            dropdown.classList.add('open');
+            this.setAttribute('aria-expanded', 'true');
+          }
+        });
+      }
+    });
+
     // Close on backdrop click
     if (backdrop) {
       backdrop.addEventListener('click', function() {
-        megamenu.classList.remove('open');
-        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        closeMegaMenu();
       });
     }
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      var clickedInDropdown = false;
+      dropdowns.forEach(function(d) {
+        if (d.contains(e.target)) clickedInDropdown = true;
+      });
+      if (!clickedInDropdown) {
+        closeAllDropdowns();
+      }
+    });
 
     // Close on escape
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
-        if (megamenu) megamenu.classList.remove('open');
-        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        closeMegaMenu();
+        closeAllDropdowns();
         if (nav) nav.classList.remove('mobile-open');
         if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
       }
@@ -402,8 +508,7 @@
     if (megamenu) {
       megamenu.querySelectorAll('a').forEach(function(link) {
         link.addEventListener('click', function() {
-          megamenu.classList.remove('open');
-          if (trigger) trigger.setAttribute('aria-expanded', 'false');
+          closeMegaMenu();
         });
       });
     }
