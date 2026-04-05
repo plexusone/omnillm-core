@@ -1,27 +1,44 @@
-/* EXTREME TEST: Make header bright red - impossible to miss */
-.md-header {
-  background: red !important;
-  background-color: red !important;
-}
-
-/* Override MkDocs Material palette.css variables */
-@media screen {
-  body[data-md-color-scheme="slate"] {
-    --md-default-fg-color: #f1f5f9;
-    --md-default-fg-color--light: #94a3b8;
-  }
-}
-
-/* Search input text color fix for dark mode */
-[data-md-color-scheme="slate"] .md-search__input {
+/* Search input - target with high specificity */
+.md-search__inner .md-search__input {
   color: #f1f5f9 !important;
   -webkit-text-fill-color: #f1f5f9 !important;
 }
 
-[data-md-color-scheme="slate"] .md-search__input::placeholder {
+.md-search__inner .md-search__input::placeholder {
+  color: #94a3b8 !important;
+  -webkit-text-fill-color: #94a3b8 !important;
+  opacity: 1 !important;
+}
+
+/* Search icons - target label and button */
+.md-search__inner label.md-search__icon {
   color: #94a3b8 !important;
 }
 
-[data-md-color-scheme="slate"] .md-search__icon.md-icon {
+.md-search__inner button.md-search__icon {
   color: #94a3b8 !important;
+}
+
+/* SVG paths directly */
+.md-search__icon svg {
+  fill: #94a3b8 !important;
+}
+
+.md-search__icon svg path {
+  fill: #94a3b8 !important;
+}
+
+/* Light mode */
+[data-md-color-scheme="default"] .md-search__inner .md-search__input {
+  color: #1e293b !important;
+  -webkit-text-fill-color: #1e293b !important;
+}
+
+[data-md-color-scheme="default"] .md-search__inner .md-search__input::placeholder {
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+}
+
+[data-md-color-scheme="default"] .md-search__icon svg path {
+  fill: #64748b !important;
 }
