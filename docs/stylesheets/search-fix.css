@@ -1,3 +1,11 @@
+/* Override MkDocs Material palette.css variables - match @media screen specificity */
+@media screen {
+  [data-md-color-scheme="slate"] {
+    --md-default-fg-color: #f1f5f9;
+    --md-default-fg-color--light: #94a3b8;
+  }
+}
+
 /* Search input text color fix for dark mode */
 [data-md-color-scheme="slate"] .md-search__input {
   color: #f1f5f9 !important;
@@ -10,24 +18,19 @@
   opacity: 1 !important;
 }
 
-/* Search icons - dark mode - set color for currentColor inheritance */
+/* Search icons - dark mode */
 [data-md-color-scheme="slate"] .md-search__icon.md-icon {
   color: #94a3b8 !important;
 }
 
-[data-md-color-scheme="slate"] .md-search__input ~ .md-search__icon {
-  color: #94a3b8 !important;
-}
-
-[data-md-color-scheme="slate"] label.md-search__icon.md-icon {
-  color: #94a3b8 !important;
-}
-
-[data-md-color-scheme="slate"] button.md-search__icon.md-icon {
-  color: #94a3b8 !important;
-}
-
 /* Search input text color fix for light mode */
+@media screen {
+  [data-md-color-scheme="default"] {
+    --md-default-fg-color: #1e293b;
+    --md-default-fg-color--light: #64748b;
+  }
+}
+
 [data-md-color-scheme="default"] .md-search__input {
   color: #1e293b !important;
   -webkit-text-fill-color: #1e293b !important;
@@ -39,11 +42,6 @@
   opacity: 1 !important;
 }
 
-/* Search icons - light mode */
 [data-md-color-scheme="default"] .md-search__icon.md-icon {
-  color: #64748b !important;
-}
-
-[data-md-color-scheme="default"] .md-search__input ~ .md-search__icon {
   color: #64748b !important;
 }
