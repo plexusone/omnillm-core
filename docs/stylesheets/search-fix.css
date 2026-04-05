@@ -1,0 +1,29 @@
+/* Search input text color fix for dark mode */
+[data-md-color-scheme="slate"] .md-search__input {
+  color: #f1f5f9 !important;
+  -webkit-text-fill-color: #f1f5f9 !important;
+}
+
+[data-md-color-scheme="slate"] .md-search__input::placeholder {
+  color: #94a3b8 !important;
+  -webkit-text-fill-color: #94a3b8 !important;
+}
+
+[data-md-color-scheme="slate"] .md-search__icon svg {
+  fill: #94a3b8 !important;
+}
+
+/* Search input text color fix for light mode */
+[data-md-color-scheme="default"] .md-search__input {
+  color: #1e293b !important;
+  -webkit-text-fill-color: #1e293b !important;
+}
+
+[data-md-color-scheme="default"] .md-search__input::placeholder {
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+}
+
+[data-md-color-scheme="default"] .md-search__icon svg {
+  fill: #64748b !important;
+}

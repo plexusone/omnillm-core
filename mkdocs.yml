@@ -30,6 +30,7 @@ theme:
 
 extra_css:
   - https://plexusone.dev/css/plexusone-mkdocs.css
+  - stylesheets/search-fix.css
 
 markdown_extensions:
   - pymdownx.highlight:
