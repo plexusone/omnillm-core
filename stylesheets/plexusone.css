@@ -461,6 +461,25 @@
   color: #a78bfa;
 }
 
+.plexus-nav-mobile-more {
+  font-size: 0.75rem;
+  color: #06b6d4;
+}
+
+.plexus-nav-mobile-more:hover {
+  color: #22d3ee;
+}
+
+/* Mega menu trigger active state */
+.plexus-nav-megamenu-trigger.active,
+.plexus-nav-megamenu-trigger[aria-expanded="true"] {
+  color: #06b6d4;
+}
+
+.plexus-nav-megamenu-trigger[aria-expanded="true"] .plexus-nav-chevron {
+  transform: rotate(180deg);
+}
+
 /* Adjust MkDocs header position */
 .md-header {
   top: 64px;

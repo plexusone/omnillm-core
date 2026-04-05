@@ -86,7 +86,7 @@
     </div>
     
     
-<!-- PlexusOne Unified Navigation -->
+<!-- PlexusOne Unified Navigation with Mega Menu -->
 <nav class="plexus-nav" aria-label="PlexusOne main navigation">
   <div class="plexus-nav-container">
     <a href="https://plexusone.dev/" class="plexus-nav-brand">
@@ -97,9 +97,11 @@
     </a>
 
     <div class="plexus-nav-links" id="plexus-nav-desktop">
-      <!-- Populated by JavaScript from products.json -->
       <!-- Fallback content shown until JS loads -->
-      <a href="https://plexusone.dev/#products" class="plexus-nav-link">Products</a>
+      <button class="plexus-nav-link plexus-nav-megamenu-trigger" aria-expanded="false" aria-haspopup="true">
+        Products
+        <svg class="plexus-nav-chevron" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+      </button>
       <a href="https://plexusone.dev/projects" class="plexus-nav-link">Projects</a>
       <a href="https://github.com/plexusone" target="_blank" rel="noopener noreferrer" class="plexus-nav-github">
         <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -114,11 +116,42 @@
     </button>
   </div>
 
+  <!-- Mega Menu Panel -->
+  <div class="plexus-megamenu" id="plexus-megamenu">
+    <div class="plexus-megamenu-backdrop"></div>
+    <div class="plexus-megamenu-panel">
+      <div class="plexus-megamenu-content">
+        <!-- Categories will be populated by JavaScript -->
+        <div class="plexus-megamenu-grid" id="plexus-megamenu-grid">
+          <!-- Fallback content -->
+          <div class="plexus-megamenu-category">
+            <h3>Libraries</h3>
+            <p class="plexus-megamenu-desc">Go SDKs and modules</p>
+            <ul>
+              <li><a href="https://plexusone.dev/omnillm">OmniLLM</a></li>
+              <li><a href="https://plexusone.dev/omnivault">OmniVault</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="plexus-megamenu-footer">
+          <div class="plexus-megamenu-footer-links">
+            <a href="https://plexusone.dev/#products">All Products</a>
+            <a href="https://plexusone.dev/integrations">Integrations</a>
+            <a href="https://github.com/plexusone" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+          <span class="plexus-megamenu-stats" id="plexus-megamenu-stats"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Mobile menu -->
   <div class="plexus-nav-mobile-menu" id="plexus-nav-mobile">
-    <!-- Populated by JavaScript from products.json -->
     <div class="plexus-nav-mobile-section">
-      <a href="https://plexusone.dev/#products" class="plexus-nav-mobile-link">Products</a>
+      <span class="plexus-nav-mobile-label">Products</span>
+      <a href="https://plexusone.dev/#products" class="plexus-nav-mobile-link">All Products</a>
+    </div>
+    <div class="plexus-nav-mobile-section">
       <a href="https://plexusone.dev/projects" class="plexus-nav-mobile-link">Projects</a>
     </div>
     <div class="plexus-nav-mobile-section">
@@ -130,15 +163,183 @@
   </div>
 </nav>
 
+<style>
+/* Mega Menu Styles */
+.plexus-megamenu {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.plexus-megamenu.open {
+  display: block;
+}
+
+.plexus-megamenu-backdrop {
+  position: fixed;
+  inset: 64px 0 0 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.plexus-megamenu-panel {
+  position: relative;
+  background: rgba(10, 15, 28, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.plexus-megamenu-content {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.plexus-megamenu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.plexus-megamenu-category h3 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  margin: 0 0 0.25rem 0;
+}
+
+.plexus-megamenu-category .plexus-megamenu-desc {
+  font-size: 0.7rem;
+  color: #6b7280;
+  margin: 0 0 1rem 0;
+}
+
+.plexus-megamenu-category ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plexus-megamenu-category li {
+  margin-bottom: 0.75rem;
+}
+
+.plexus-megamenu-category li a {
+  display: block;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.plexus-megamenu-category li a .product-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e5e7eb;
+}
+
+.plexus-megamenu-category li a:hover .product-name {
+  color: #06b6d4;
+}
+
+.plexus-megamenu-category li a .product-tagline {
+  font-size: 0.7rem;
+  color: #6b7280;
+  margin-top: 0.125rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.plexus-megamenu-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.75rem;
+  font-size: 0.7rem;
+  color: #06b6d4;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.plexus-megamenu-more:hover {
+  color: #22d3ee;
+}
+
+.plexus-megamenu-more svg {
+  transform: rotate(-90deg);
+}
+
+.plexus-megamenu-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.plexus-megamenu-footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.plexus-megamenu-footer-links a {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.plexus-megamenu-footer-links a:hover {
+  color: #fff;
+}
+
+.plexus-megamenu-stats {
+  font-size: 0.75rem;
+  color: #4b5563;
+}
+
+/* Trigger active state */
+.plexus-nav-megamenu-trigger.active,
+.plexus-nav-megamenu-trigger[aria-expanded="true"] {
+  color: #06b6d4;
+}
+
+.plexus-nav-megamenu-trigger[aria-expanded="true"] .plexus-nav-chevron {
+  transform: rotate(180deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .plexus-megamenu {
+    display: none !important;
+  }
+}
+</style>
+
 <script>
-// PlexusOne Navigation - Dynamic menu from products.json
+// PlexusOne Mega Menu - Dynamic from products.json
 (function() {
   var BASE_URL = 'https://plexusone.dev';
   var PRODUCTS_JSON_URL = BASE_URL + '/data/products.json';
-  var CHEVRON_SVG = '<svg class="plexus-nav-chevron" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>';
-  var GITHUB_SVG = '<svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>';
+  var CATEGORY_ORDER = ['library', 'agent', 'application', 'specification'];
+  var CATEGORY_URLS = {
+    library: '/#products',
+    agent: '/#products',
+    application: '/applications',
+    specification: '/specifications'
+  };
 
-  // Resolve URL (relative to BASE_URL or absolute)
+  var CHEVRON_SVG = '<svg viewBox="0 0 24 24" width="12" height="12"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>';
+
   function resolveUrl(url) {
     if (!url) return '#';
     if (url.startsWith('http')) return url;
@@ -146,176 +347,178 @@
     return BASE_URL + '/' + url;
   }
 
-  // Filter products by category
-  function filterProducts(products, category) {
-    return products.filter(function(p) { return p.category === category && p.docsUrl; });
-  }
+  function renderMegaMenu(data) {
+    var grid = document.getElementById('plexus-megamenu-grid');
+    var stats = document.getElementById('plexus-megamenu-stats');
+    if (!grid) return;
 
-  // Create dropdown HTML from items
-  function createDropdown(label, items) {
-    var html = '<div class="plexus-nav-dropdown">' +
-      '<button class="plexus-nav-link plexus-nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">' +
-      label + CHEVRON_SVG +
-      '</button>' +
-      '<div class="plexus-nav-dropdown-menu">';
+    var html = '';
+    var totalProducts = data.products.length;
+    var totalCategories = Object.keys(data.categories).length;
 
-    items.forEach(function(item) {
-      html += '<a href="' + resolveUrl(item.url || item.docsUrl) + '" class="plexus-nav-dropdown-item">' +
-        (item.label || item.name) + '</a>';
+    CATEGORY_ORDER.forEach(function(catKey) {
+      var category = data.categories[catKey];
+      if (!category) return;
+
+      var products = data.products.filter(function(p) {
+        return p.category === catKey && p.featured && p.docsUrl;
+      }).slice(0, 5);
+
+      var allInCategory = data.products.filter(function(p) {
+        return p.category === catKey && p.docsUrl;
+      });
+
+      var remaining = allInCategory.length - products.length;
+
+      html += '<div class="plexus-megamenu-category">';
+      html += '<h3>' + category.label + '</h3>';
+      html += '<p class="plexus-megamenu-desc">' + category.description + '</p>';
+      html += '<ul>';
+
+      products.forEach(function(product) {
+        var url = resolveUrl(product.docsUrl);
+        html += '<li><a href="' + url + '">';
+        html += '<span class="product-name">' + product.name + '</span>';
+        html += '<p class="product-tagline">' + product.tagline + '</p>';
+        html += '</a></li>';
+      });
+
+      html += '</ul>';
+
+      if (remaining > 0) {
+        var moreUrl = resolveUrl(CATEGORY_URLS[catKey]);
+        html += '<a href="' + moreUrl + '" class="plexus-megamenu-more">';
+        html += '+' + remaining + ' more ' + category.label.toLowerCase();
+        html += CHEVRON_SVG;
+        html += '</a>';
+      }
+
+      html += '</div>';
     });
 
-    html += '</div></div>';
-    return html;
-  }
+    grid.innerHTML = html;
 
-  // Create mobile section HTML
-  function createMobileSection(label, items) {
-    var html = '<div class="plexus-nav-mobile-section">';
-    if (label) {
-      html += '<span class="plexus-nav-mobile-label">' + label + '</span>';
+    if (stats) {
+      stats.textContent = totalProducts + ' products across ' + totalCategories + ' categories';
     }
-    items.forEach(function(item) {
-      html += '<a href="' + resolveUrl(item.url || item.docsUrl) + '" class="plexus-nav-mobile-link">' +
-        (item.label || item.name) + '</a>';
-    });
-    html += '</div>';
-    return html;
+
+    // Render mobile menu with categories
+    renderMobileMenu(data);
   }
 
-  // Render navigation from products.json
-  function renderNavigation(data) {
-    var products = data.products;
-    var nav = data.navigation;
-    var desktopHtml = '';
-    var mobileHtml = '';
+  function renderMobileMenu(data) {
+    var mobileNav = document.getElementById('plexus-nav-mobile');
+    if (!mobileNav) return;
 
-    // Process navigation sections
-    nav.sections.forEach(function(section) {
-      if (section.type === 'dropdown') {
-        var items = [];
+    var html = '';
 
-        // If section has filter, get products by category
-        if (section.filter && section.filter.category) {
-          items = filterProducts(products, section.filter.category);
-        }
-        // If section has explicit items
-        else if (section.items) {
-          section.items.forEach(function(item) {
-            // Check if item has a filter to expand products
-            if (item.filter && item.filter.category) {
-              var filtered = filterProducts(products, item.filter.category);
-              // Add category header then products
-              items.push({ label: item.label, url: item.url, isHeader: true });
-              filtered.slice(0, 6).forEach(function(p) { items.push(p); }); // Limit to 6
-            } else {
-              items.push(item);
-            }
-          });
-        }
+    CATEGORY_ORDER.forEach(function(catKey) {
+      var category = data.categories[catKey];
+      if (!category) return;
 
-        if (items.length > 0) {
-          desktopHtml += createDropdown(section.label, items);
-          mobileHtml += createMobileSection(section.label, items);
-        }
-      } else if (section.type === 'link') {
-        desktopHtml += '<a href="' + resolveUrl(section.url) + '" class="plexus-nav-link">' + section.label + '</a>';
-        mobileHtml += '<div class="plexus-nav-mobile-section"><a href="' + resolveUrl(section.url) + '" class="plexus-nav-mobile-link">' + section.label + '</a></div>';
+      var products = data.products.filter(function(p) {
+        return p.category === catKey && p.featured && p.docsUrl;
+      }).slice(0, 4);
+
+      html += '<div class="plexus-nav-mobile-section">';
+      html += '<span class="plexus-nav-mobile-label">' + category.label + '</span>';
+
+      products.forEach(function(product) {
+        var url = resolveUrl(product.docsUrl);
+        html += '<a href="' + url + '" class="plexus-nav-mobile-link">' + product.name + '</a>';
+      });
+
+      var moreUrl = resolveUrl(CATEGORY_URLS[catKey]);
+      html += '<a href="' + moreUrl + '" class="plexus-nav-mobile-link plexus-nav-mobile-more">View all ' + category.label.toLowerCase() + '</a>';
+      html += '</div>';
+    });
+
+    // Add Projects and GitHub
+    html += '<div class="plexus-nav-mobile-section">';
+    html += '<a href="' + BASE_URL + '/projects" class="plexus-nav-mobile-link">Projects</a>';
+    html += '</div>';
+
+    html += '<div class="plexus-nav-mobile-section">';
+    html += '<a href="https://github.com/plexusone" target="_blank" rel="noopener noreferrer" class="plexus-nav-mobile-link plexus-nav-mobile-github">';
+    html += '<svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>';
+    html += 'GitHub';
+    html += '</a>';
+    html += '</div>';
+
+    mobileNav.innerHTML = html;
+  }
+
+  function attachEventListeners() {
+    var megamenu = document.getElementById('plexus-megamenu');
+    var trigger = document.querySelector('.plexus-nav-megamenu-trigger');
+    var backdrop = document.querySelector('.plexus-megamenu-backdrop');
+    var nav = document.querySelector('.plexus-nav');
+    var mobileToggle = document.querySelector('.plexus-nav-mobile-toggle');
+
+    // Mega menu toggle
+    if (trigger && megamenu) {
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var isOpen = megamenu.classList.contains('open');
+        megamenu.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', !isOpen);
+      });
+    }
+
+    // Close on backdrop click
+    if (backdrop) {
+      backdrop.addEventListener('click', function() {
+        megamenu.classList.remove('open');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    // Close on escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        if (megamenu) megamenu.classList.remove('open');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        if (nav) nav.classList.remove('mobile-open');
+        if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
       }
     });
 
-    // GitHub button
-    if (nav.external && nav.external.github) {
-      var gh = nav.external.github;
-      desktopHtml += '<a href="' + gh.url + '" target="_blank" rel="noopener noreferrer" class="plexus-nav-github">' + GITHUB_SVG + gh.label + '</a>';
-      mobileHtml += '<div class="plexus-nav-mobile-section"><a href="' + gh.url + '" target="_blank" rel="noopener noreferrer" class="plexus-nav-mobile-link plexus-nav-mobile-github">' + GITHUB_SVG + gh.label + '</a></div>';
+    // Close mega menu on link click
+    if (megamenu) {
+      megamenu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          megamenu.classList.remove('open');
+          if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        });
+      });
     }
 
-    // Update DOM
-    var desktopNav = document.getElementById('plexus-nav-desktop');
-    var mobileNav = document.getElementById('plexus-nav-mobile');
-    if (desktopNav) desktopNav.innerHTML = desktopHtml;
-    if (mobileNav) mobileNav.innerHTML = mobileHtml;
-
-    // Re-attach event listeners
-    attachEventListeners();
-  }
-
-  // Attach dropdown and mobile event listeners
-  function attachEventListeners() {
-    // Dropdown toggle
-    document.querySelectorAll('.plexus-nav-dropdown-trigger').forEach(function(trigger) {
-      trigger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        var dropdown = this.parentElement;
-        var isOpen = dropdown.classList.contains('open');
-
-        // Close all dropdowns
-        document.querySelectorAll('.plexus-nav-dropdown').forEach(function(d) {
-          d.classList.remove('open');
-          var t = d.querySelector('.plexus-nav-dropdown-trigger');
-          if (t) t.setAttribute('aria-expanded', 'false');
-        });
-
-        // Toggle current
-        if (!isOpen) {
-          dropdown.classList.add('open');
-          this.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
-    // Close dropdowns on outside click
-    document.addEventListener('click', function() {
-      document.querySelectorAll('.plexus-nav-dropdown').forEach(function(d) {
-        d.classList.remove('open');
-        var t = d.querySelector('.plexus-nav-dropdown-trigger');
-        if (t) t.setAttribute('aria-expanded', 'false');
-      });
-    });
-
     // Mobile menu toggle
-    var mobileToggle = document.querySelector('.plexus-nav-mobile-toggle');
-    var nav = document.querySelector('.plexus-nav');
-
     if (mobileToggle && nav) {
-      // Remove existing listeners by cloning
-      var newToggle = mobileToggle.cloneNode(true);
-      mobileToggle.parentNode.replaceChild(newToggle, mobileToggle);
-
-      newToggle.addEventListener('click', function() {
+      mobileToggle.addEventListener('click', function() {
         var isOpen = nav.classList.contains('mobile-open');
         nav.classList.toggle('mobile-open');
         this.setAttribute('aria-expanded', !isOpen);
       });
     }
-
-    // Close mobile menu on escape
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.plexus-nav-dropdown').forEach(function(d) {
-          d.classList.remove('open');
-        });
-        if (nav) nav.classList.remove('mobile-open');
-      }
-    });
   }
 
-  // Fetch and render products.json
+  // Fetch and render
   fetch(PRODUCTS_JSON_URL)
     .then(function(response) {
-      if (!response.ok) throw new Error('Failed to fetch products.json');
+      if (!response.ok) throw new Error('Failed to fetch');
       return response.json();
     })
     .then(function(data) {
-      renderNavigation(data);
+      renderMegaMenu(data);
+      attachEventListeners();
     })
     .catch(function(err) {
-      console.warn('PlexusOne products.json fetch failed, using fallback:', err);
-      // Fallback is already in DOM, just attach listeners
+      console.warn('PlexusOne products.json fetch failed:', err);
       attachEventListeners();
     });
 
-  // Attach listeners for fallback content immediately
+  // Attach listeners immediately for fallback
   attachEventListeners();
 })();
 </script>
