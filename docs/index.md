@@ -2,10 +2,6 @@
 
 **Unified Go SDK for Large Language Models**
 
-[![Build Status](https://github.com/plexusone/omnillm/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/plexusone/omnillm/actions/workflows/ci.yaml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/plexusone/omnillm)](https://goreportcard.com/report/github.com/plexusone/omnillm)
-[![Go Reference](https://pkg.go.dev/badge/github.com/plexusone/omnillm.svg)](https://pkg.go.dev/github.com/plexusone/omnillm)
-
 OmniLLM is a unified Go SDK that provides a consistent interface for interacting with multiple Large Language Model (LLM) providers including OpenAI, Anthropic (Claude), Google Gemini, X.AI (Grok), and Ollama. It implements the Chat Completions API pattern and offers both synchronous and streaming capabilities.
 
 ## Features
