@@ -1,8 +1,8 @@
-site_name: OmniLLM
-site_description: Unified Go SDK for Large Language Models
-site_url: https://plexusone.github.io/omnillm
-repo_url: https://github.com/plexusone/omnillm
-repo_name: plexusone/omnillm
+site_name: OmniLLM Core
+site_description: Unified Go SDK for Large Language Models (Thin Providers)
+site_url: https://plexusone.github.io/omnillm-core
+repo_url: https://github.com/plexusone/omnillm-core
+repo_name: plexusone/omnillm-core
 
 theme:
   name: material
@@ -72,7 +72,7 @@ nav:
       - Retry & Backoff: features/retry.md
   - Architecture: architecture.md
   - Testing: testing.md
-  - API Reference: https://pkg.go.dev/github.com/plexusone/omnillm
+  - API Reference: https://pkg.go.dev/github.com/plexusone/omnillm-core
   - Releases:
       - Changelog: releases/changelog.md
       - v0.14.0: releases/v0.14.0.md
@@ -88,4 +88,4 @@ nav:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/plexusone/omnillm
+      link: https://github.com/plexusone/omnillm-core

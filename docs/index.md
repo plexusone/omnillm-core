@@ -1,8 +1,10 @@
-# OmniLLM
+# OmniLLM Core
 
-**Unified Go SDK for Large Language Models**
+**Unified Go SDK for Large Language Models (Thin Providers)**
 
-OmniLLM is a unified Go SDK that provides a consistent interface for interacting with multiple Large Language Model (LLM) providers including OpenAI, Anthropic (Claude), Google Gemini, X.AI (Grok), and Ollama. It implements the Chat Completions API pattern and offers both synchronous and streaming capabilities.
+OmniLLM Core is a unified Go SDK that provides a consistent interface for interacting with multiple Large Language Model (LLM) providers including OpenAI, Anthropic (Claude), X.AI (Grok), GLM (Zhipu AI), Kimi (Moonshot AI), Qwen (Alibaba Cloud), and Ollama. It implements the Chat Completions API pattern and offers both synchronous and streaming capabilities.
+
+This package contains **thin providers** using native HTTP with no external SDK dependencies. For official SDK support, see the [thick provider packages](getting-started/installation.md#thick-providers-official-sdks).
 
 ## Features
 
