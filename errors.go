@@ -24,6 +24,9 @@ var (
 	ErrModelNotFound        = errors.New("model not found")
 	ErrServerError          = errors.New("server error")
 	ErrNetworkError         = errors.New("network error")
+
+	// Aliases for thick provider compatibility
+	ErrInvalidAPIKey = ErrEmptyAPIKey
 )
 
 // APIError represents an error response from the API
@@ -40,8 +43,19 @@ func (e *APIError) Error() string {
 		e.Provider, e.Message, e.StatusCode, e.Type, e.Code)
 }
 
-// NewAPIError creates a new API error
-func NewAPIError(provider ProviderName, statusCode int, message, errorType, code string) *APIError {
+// NewAPIError creates a new API error.
+// This signature is compatible with thick providers that pass (provider, statusCode, errorType, message).
+func NewAPIError(provider string, statusCode int, errorType, message string) *APIError {
+	return &APIError{
+		StatusCode: statusCode,
+		Message:    message,
+		Type:       errorType,
+		Provider:   ProviderName(provider),
+	}
+}
+
+// NewAPIErrorFull creates a new API error with all fields.
+func NewAPIErrorFull(provider ProviderName, statusCode int, message, errorType, code string) *APIError {
 	return &APIError{
 		StatusCode: statusCode,
 		Message:    message,
