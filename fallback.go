@@ -458,26 +458,16 @@ func buildProviderFromConfig(config ProviderConfig) (provider.Provider, error) {
 		return config.CustomProvider, nil
 	}
 
-	switch config.Provider {
-	case ProviderNameOpenAI:
-		return newOpenAIProvider(config)
-	case ProviderNameAnthropic:
-		return newAnthropicProvider(config)
-	case ProviderNameOllama:
-		return newOllamaProvider(config)
-	case ProviderNameGemini:
-		return newGeminiProvider(config)
-	case ProviderNameXAI:
-		return newXAIProvider(config)
-	case ProviderNameKimi:
-		return newKimiProvider(config)
-	case ProviderNameGLM:
-		return newGLMProvider(config)
-	case ProviderNameQwen:
-		return newQwenProvider(config)
-	case ProviderNameBedrock:
+	// Special case: Bedrock requires external module
+	if config.Provider == ProviderNameBedrock {
 		return nil, ErrBedrockExternal
-	default:
+	}
+
+	// Look up provider in registry
+	factory := GetProviderFactory(config.Provider)
+	if factory == nil {
 		return nil, ErrUnsupportedProvider
 	}
+
+	return factory(config)
 }

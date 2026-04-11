@@ -5,7 +5,6 @@ import (
 
 	"github.com/plexusone/omnillm/provider"
 	"github.com/plexusone/omnillm/providers/anthropic"
-	"github.com/plexusone/omnillm/providers/gemini"
 	"github.com/plexusone/omnillm/providers/glm"
 	"github.com/plexusone/omnillm/providers/kimi"
 	"github.com/plexusone/omnillm/providers/ollama"
@@ -45,14 +44,6 @@ func newAnthropicProvider(config ProviderConfig) (provider.Provider, error) {
 // newOllamaProvider creates a new Ollama provider adapter
 func newOllamaProvider(config ProviderConfig) (provider.Provider, error) { //nolint:unparam // `error` added to fulfill interface requirements
 	return ollama.NewProvider(config.BaseURL, getHTTPClientFromProviderConfig(config)), nil
-}
-
-// newGeminiProvider creates a new Gemini provider adapter
-func newGeminiProvider(config ProviderConfig) (provider.Provider, error) {
-	if config.APIKey == "" {
-		return nil, ErrEmptyAPIKey
-	}
-	return gemini.NewProvider(config.APIKey), nil
 }
 
 // newXAIProvider creates a new X.AI provider adapter
