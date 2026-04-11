@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/plexusone/omnillm/provider/providertest"
+	"github.com/plexusone/omnillm-core/provider/providertest"
 )
 
 func TestConformance(t *testing.T) {

@@ -9,7 +9,7 @@ import (
 
 	"github.com/grokify/mogo/log/slogutil"
 
-	"github.com/plexusone/omnillm/provider"
+	"github.com/plexusone/omnillm-core/provider"
 )
 
 // ProviderConfig holds configuration for a single provider instance.

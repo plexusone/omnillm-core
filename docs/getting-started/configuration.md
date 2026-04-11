@@ -77,7 +77,7 @@ import (
     "log/slog"
     "os"
 
-    "github.com/plexusone/omnillm"
+    "github.com/plexusone/omnillm-core"
 )
 
 logger := slog.New(slog.NewJSONHandler(os.Stderr, &slog.HandlerOptions{

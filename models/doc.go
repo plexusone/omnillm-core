@@ -6,7 +6,7 @@
 //
 // Usage:
 //
-//	import "github.com/plexusone/omnillm/models"
+//	import "github.com/plexusone/omnillm-core/models"
 //
 //	// Use model constants
 //	model := models.ClaudeOpus4

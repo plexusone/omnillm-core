@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-go get github.com/plexusone/omnillm
+go get github.com/plexusone/omnillm-core
 ```
 
 ## External Providers

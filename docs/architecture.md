@@ -77,7 +77,7 @@ type Provider interface {
 ### External (Recommended)
 
 1. Create a new Go module
-2. Import `github.com/plexusone/omnillm/provider`
+2. Import `github.com/plexusone/omnillm-core/provider`
 3. Implement the `Provider` interface
 4. Users inject via `CustomProvider`
 

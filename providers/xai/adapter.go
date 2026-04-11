@@ -5,7 +5,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/plexusone/omnillm/provider"
+	"github.com/plexusone/omnillm-core/provider"
 )
 
 // Provider represents the X.AI provider adapter

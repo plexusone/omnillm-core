@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/plexusone/omnillm"
+	"github.com/plexusone/omnillm-core"
 )
 
 func main() {

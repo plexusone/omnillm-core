@@ -17,7 +17,7 @@ go get github.com/plexusone/omnillm-bedrock
 
 ```go
 import (
-    "github.com/plexusone/omnillm"
+    "github.com/plexusone/omnillm-core"
     "github.com/plexusone/omnillm-bedrock"
 )
 

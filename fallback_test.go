@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/plexusone/omnillm/provider"
+	"github.com/plexusone/omnillm-core/provider"
 )
 
 // mockProvider is a test provider with configurable behavior

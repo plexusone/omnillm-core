@@ -8,22 +8,22 @@
 [![Visualization][viz-svg]][viz-url]
 [![License][license-svg]][license-url]
 
- [go-ci-svg]: https://github.com/plexusone/omnillm/actions/workflows/go-ci.yaml/badge.svg?branch=main
- [go-ci-url]: https://github.com/plexusone/omnillm/actions/workflows/go-ci.yaml
- [go-lint-svg]: https://github.com/plexusone/omnillm/actions/workflows/go-lint.yaml/badge.svg?branch=main
- [go-lint-url]: https://github.com/plexusone/omnillm/actions/workflows/go-lint.yaml
- [go-sast-svg]: https://github.com/plexusone/omnillm/actions/workflows/go-sast-codeql.yaml/badge.svg?branch=main
- [go-sast-url]: https://github.com/plexusone/omnillm/actions/workflows/go-sast-codeql.yaml
- [goreport-svg]: https://goreportcard.com/badge/github.com/plexusone/omnillm
- [goreport-url]: https://goreportcard.com/report/github.com/plexusone/omnillm
- [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/plexusone/omnillm
- [docs-godoc-url]: https://pkg.go.dev/github.com/plexusone/omnillm
+ [go-ci-svg]: https://github.com/plexusone/omnillm-core/actions/workflows/go-ci.yaml/badge.svg?branch=main
+ [go-ci-url]: https://github.com/plexusone/omnillm-core/actions/workflows/go-ci.yaml
+ [go-lint-svg]: https://github.com/plexusone/omnillm-core/actions/workflows/go-lint.yaml/badge.svg?branch=main
+ [go-lint-url]: https://github.com/plexusone/omnillm-core/actions/workflows/go-lint.yaml
+ [go-sast-svg]: https://github.com/plexusone/omnillm-core/actions/workflows/go-sast-codeql.yaml/badge.svg?branch=main
+ [go-sast-url]: https://github.com/plexusone/omnillm-core/actions/workflows/go-sast-codeql.yaml
+ [goreport-svg]: https://goreportcard.com/badge/github.com/plexusone/omnillm-core
+ [goreport-url]: https://goreportcard.com/report/github.com/plexusone/omnillm-core
+ [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/plexusone/omnillm-core
+ [docs-godoc-url]: https://pkg.go.dev/github.com/plexusone/omnillm-core
  [viz-svg]: https://img.shields.io/badge/visualizaton-Go-blue.svg
  [viz-url]: https://mango-dune-07a8b7110.1.azurestaticapps.net/?repo=plexusone%2Fomnillm
  [loc-svg]: https://tokei.rs/b1/github/plexusone/omnillm
- [repo-url]: https://github.com/plexusone/omnillm
+ [repo-url]: https://github.com/plexusone/omnillm-core
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
- [license-url]: https://github.com/plexusone/omnillm/blob/master/LICENSE
+ [license-url]: https://github.com/plexusone/omnillm-core/blob/master/LICENSE
 
 OmniLLM is a unified Go SDK that provides a consistent interface for interacting with multiple Large Language Model (LLM) providers including OpenAI, Anthropic (Claude), Google Gemini, X.AI (Grok), GLM (Zhipu AI), Kimi (Moonshot AI), Qwen (Alibaba Cloud), and Ollama. It implements the Chat Completions API pattern and offers both synchronous and streaming capabilities. Additional providers like AWS Bedrock are available as [external modules](#external-providers).
 
@@ -98,7 +98,7 @@ omnillm/
 ### Installation
 
 ```bash
-go get github.com/plexusone/omnillm
+go get github.com/plexusone/omnillm-core
 ```
 
 ### Basic Usage
@@ -111,7 +111,7 @@ import (
     "fmt"
     "log"
     
-    "github.com/plexusone/omnillm"
+    "github.com/plexusone/omnillm-core"
 )
 
 func main() {
@@ -198,7 +198,7 @@ go get github.com/plexusone/omnillm-bedrock
 
 ```go
 import (
-    "github.com/plexusone/omnillm"
+    "github.com/plexusone/omnillm-core"
     "github.com/plexusone/omnillm-bedrock"
 )
 
@@ -295,7 +295,7 @@ Some providers with heavy SDK dependencies are available as separate modules to 
 
 ```go
 import (
-    "github.com/plexusone/omnillm"
+    "github.com/plexusone/omnillm-core"
     "github.com/plexusone/omnillm-bedrock"  // or your custom provider
 )
 
@@ -318,7 +318,7 @@ client, err := omnillm.NewClient(omnillm.ClientConfig{
 External providers implement the `provider.Provider` interface:
 
 ```go
-import "github.com/plexusone/omnillm/provider"
+import "github.com/plexusone/omnillm-core/provider"
 
 type MyProvider struct{}
 
@@ -872,7 +872,7 @@ func TestAnthropicIntegration_Streaming(t *testing.T) {
 OmniLLM provides a mock KVS implementation for testing memory functionality:
 
 ```go
-import omnillmtest "github.com/plexusone/omnillm/testing"
+import omnillmtest "github.com/plexusone/omnillm-core/testing"
 
 // Create mock KVS for testing
 mockKVS := omnillmtest.NewMockKVS()
@@ -998,7 +998,7 @@ import (
     "log/slog"
     "os"
 
-    "github.com/plexusone/omnillm"
+    "github.com/plexusone/omnillm-core"
 )
 
 // Use a custom logger
@@ -1027,7 +1027,7 @@ OmniLLM supports request-scoped logging via context. This allows you to attach t
 import (
     "log/slog"
 
-    "github.com/plexusone/omnillm"
+    "github.com/plexusone/omnillm-core"
     "github.com/grokify/mogo/log/slogutil"
 )
 
@@ -1056,7 +1056,7 @@ import (
     "net/http"
     "time"
 
-    "github.com/plexusone/omnillm"
+    "github.com/plexusone/omnillm-core"
     "github.com/grokify/mogo/net/http/retryhttp"
 )
 
@@ -1117,7 +1117,7 @@ package gemini
 
 import (
     "context"
-    "github.com/plexusone/omnillm/provider"
+    "github.com/plexusone/omnillm-core/provider"
 )
 
 // Step 1: HTTP Client (like providers/openai/openai.go)
@@ -1157,7 +1157,7 @@ func (p *Provider) Name() string { return "gemini" }
 
 ```go
 import (
-    "github.com/plexusone/omnillm"
+    "github.com/plexusone/omnillm-core"
     "github.com/yourname/omnillm-gemini"
 )
 

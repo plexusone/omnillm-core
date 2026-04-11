@@ -1,5 +1,10 @@
 //go:build ignore
 
+// This example requires omnillm-gemini to be installed:
+//
+//	go get github.com/plexusone/omnillm-gemini
+//
+// Then remove the "//go:build ignore" line to enable building.
 package main
 
 import (
@@ -8,7 +13,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/plexusone/omnillm"
+	omnillm "github.com/plexusone/omnillm-core"
 
 	// Import omnillm-gemini to register the Gemini provider.
 	// This is required because Gemini uses a heavy SDK dependency

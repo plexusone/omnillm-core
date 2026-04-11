@@ -9,7 +9,7 @@ import "context"
 //
 // Example usage in external package:
 //
-//	import "github.com/plexusone/omnillm/provider"
+//	import "github.com/plexusone/omnillm-core/provider"
 //
 //	func NewMyProvider(apiKey string) provider.Provider {
 //	    return &myProvider{apiKey: apiKey}

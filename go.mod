@@ -1,4 +1,4 @@
-module github.com/plexusone/omnillm
+module github.com/plexusone/omnillm-core
 
 go 1.26.0
 

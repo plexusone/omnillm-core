@@ -3,7 +3,7 @@ package omnillm
 import (
 	"sync"
 
-	"github.com/plexusone/omnillm/provider"
+	"github.com/plexusone/omnillm-core/provider"
 )
 
 // ProviderFactory is a function that creates a provider from config.

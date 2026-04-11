@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/plexusone/omnillm/provider"
+	"github.com/plexusone/omnillm-core/provider"
 )
 
 func TestProvider_Name(t *testing.T) {

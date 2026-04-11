@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/plexusone/omnillm/provider"
+	"github.com/plexusone/omnillm-core/provider"
 )
 
 // TestKimiIntegration_ChatCompletion tests actual API calls to Kimi

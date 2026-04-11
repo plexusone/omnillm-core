@@ -6,7 +6,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/plexusone/omnillm"
+	"github.com/plexusone/omnillm-core"
 )
 
 // ProviderDemo holds configuration for demonstrating a specific provider

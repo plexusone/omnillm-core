@@ -1,6 +1,6 @@
 package omnillm
 
-import "github.com/plexusone/omnillm/models"
+import "github.com/plexusone/omnillm-core/models"
 
 const (
 	EnvVarAnthropicAPIKey = "ANTHROPIC_API_KEY" // #nosec G101
@@ -29,7 +29,7 @@ const (
 
 // Common model constants for each provider.
 //
-// NOTE: For new code, prefer importing "github.com/plexusone/omnillm/models" directly
+// NOTE: For new code, prefer importing "github.com/plexusone/omnillm-core/models" directly
 // for better organization and documentation. These constants are maintained for
 // backwards compatibility with existing code.
 const (

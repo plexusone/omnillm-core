@@ -79,7 +79,7 @@ client, err := omnillm.NewClient(omnillm.ClientConfig{
 ## Mock KVS for Testing
 
 ```go
-import omnillmtest "github.com/plexusone/omnillm/testing"
+import omnillmtest "github.com/plexusone/omnillm-core/testing"
 
 mockKVS := omnillmtest.NewMockKVS()
 

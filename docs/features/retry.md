@@ -9,7 +9,7 @@ import (
     "net/http"
     "time"
 
-    "github.com/plexusone/omnillm"
+    "github.com/plexusone/omnillm-core"
     "github.com/grokify/mogo/net/http/retryhttp"
 )
 

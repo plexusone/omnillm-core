@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/plexusone/omnillm"
+	"github.com/plexusone/omnillm-core"
 )
 
 func main() {

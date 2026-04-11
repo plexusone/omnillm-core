@@ -12,7 +12,7 @@ package myprovider
 
 import (
     "context"
-    "github.com/plexusone/omnillm/provider"
+    "github.com/plexusone/omnillm-core/provider"
 )
 
 // HTTP Client
@@ -52,7 +52,7 @@ func (p *Provider) CreateChatCompletionStream(ctx context.Context, req *provider
 
 ```go
 import (
-    "github.com/plexusone/omnillm"
+    "github.com/plexusone/omnillm-core"
     "github.com/yourname/omnillm-myprovider"
 )
 

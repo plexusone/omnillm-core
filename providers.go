@@ -3,14 +3,14 @@ package omnillm
 import (
 	"net/http"
 
-	"github.com/plexusone/omnillm/provider"
-	"github.com/plexusone/omnillm/providers/anthropic"
-	"github.com/plexusone/omnillm/providers/glm"
-	"github.com/plexusone/omnillm/providers/kimi"
-	"github.com/plexusone/omnillm/providers/ollama"
-	"github.com/plexusone/omnillm/providers/openai"
-	"github.com/plexusone/omnillm/providers/qwen"
-	"github.com/plexusone/omnillm/providers/xai"
+	"github.com/plexusone/omnillm-core/provider"
+	"github.com/plexusone/omnillm-core/providers/anthropic"
+	"github.com/plexusone/omnillm-core/providers/glm"
+	"github.com/plexusone/omnillm-core/providers/kimi"
+	"github.com/plexusone/omnillm-core/providers/ollama"
+	"github.com/plexusone/omnillm-core/providers/openai"
+	"github.com/plexusone/omnillm-core/providers/qwen"
+	"github.com/plexusone/omnillm-core/providers/xai"
 )
 
 // getHTTPClientFromProviderConfig returns the HTTPClient from config, or creates one with the

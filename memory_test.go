@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	mocktest "github.com/plexusone/omnillm/testing"
+	mocktest "github.com/plexusone/omnillm-core/testing"
 )
 
 func TestMemoryManager_LoadConversation(t *testing.T) {

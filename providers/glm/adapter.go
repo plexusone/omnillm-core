@@ -6,7 +6,7 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/plexusone/omnillm/provider"
+	"github.com/plexusone/omnillm-core/provider"
 )
 
 // Provider represents the GLM provider adapter
