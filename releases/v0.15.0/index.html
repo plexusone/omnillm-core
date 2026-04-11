@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://plexusone.github.io/omnillm-core/releases/changelog/">
+        <link rel="canonical" href="https://plexusone.github.io/omnillm-core/releases/v0.15.0/">
       
       
-        <link rel="prev" href="../../testing/">
+        <link rel="prev" href="../changelog/">
       
       
-        <link rel="next" href="../v0.15.0/">
+        <link rel="next" href="../v0.14.0/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Changelog - OmniLLM Core</title>
+        <title>v0.15.0 - OmniLLM Core</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#changelog" class="md-skip">
+        <a href="#release-notes-v0150" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Changelog
+              v0.15.0
             
           </span>
         </div>
@@ -1058,6 +1058,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1075,7 +1098,7 @@
   
   
   <span class="md-ellipsis">
-    Changelog
+    v0.15.0
     
   </span>
   
@@ -1088,7 +1111,7 @@
   
   
   <span class="md-ellipsis">
-    Changelog
+    v0.15.0
     
   </span>
   
@@ -1111,27 +1134,120 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#releases" class="md-nav__link">
+  <a href="#highlights" class="md-nav__link">
     <span class="md-ellipsis">
-      Releases
+      Highlights
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
+  <a href="#breaking-changes" class="md-nav__link">
     <span class="md-ellipsis">
-      Versioning
+      Breaking Changes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Breaking Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-path-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module Path Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gemini-moved-to-separate-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gemini Moved to Separate Package
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thinthick-provider-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thin/Thick Provider Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thin/Thick Provider Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thin-providers-omnillm-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thin Providers (omnillm-core)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thick-providers-separate-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thick Providers (Separate Packages)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provider-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provider Registry
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#full-changelog" class="md-nav__link">
+  <a href="#compatibility-exports" class="md-nav__link">
     <span class="md-ellipsis">
-      Full Changelog
+      Compatibility Exports
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
     </span>
   </a>
   
@@ -1141,29 +1257,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../v0.15.0/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    v0.15.0
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -1410,27 +1503,120 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#releases" class="md-nav__link">
+  <a href="#highlights" class="md-nav__link">
     <span class="md-ellipsis">
-      Releases
+      Highlights
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
+  <a href="#breaking-changes" class="md-nav__link">
     <span class="md-ellipsis">
-      Versioning
+      Breaking Changes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Breaking Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#module-path-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module Path Changed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gemini-moved-to-separate-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gemini Moved to Separate Package
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#thinthick-provider-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thin/Thick Provider Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Thin/Thick Provider Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#thin-providers-omnillm-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thin Providers (omnillm-core)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thick-providers-separate-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Thick Providers (Separate Packages)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#provider-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Provider Registry
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#full-changelog" class="md-nav__link">
+  <a href="#compatibility-exports" class="md-nav__link">
     <span class="md-ellipsis">
-      Full Changelog
+      Compatibility Exports
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dependencies
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentation
     </span>
   </a>
   
@@ -1455,64 +1641,158 @@
   
 
 
-<h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
-<p>All notable changes to OmniLLM are documented in the individual release notes.</p>
-<h2 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">&para;</a></h2>
+<h1 id="release-notes-v0150">Release Notes: v0.15.0<a class="headerlink" href="#release-notes-v0150" title="Permanent link">&para;</a></h1>
+<p><strong>Release Date:</strong> 2026-04-11</p>
+<h2 id="highlights">Highlights<a class="headerlink" href="#highlights" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Module Rename</strong>: <code>omnillm</code> → <code>omnillm-core</code> establishing thin/thick provider architecture</li>
+<li><strong>Gemini Extracted</strong>: Moved to separate <code>omnillm-gemini</code> package, removing heavy <code>google.golang.org/genai</code> dependency</li>
+<li><strong>Provider Registry</strong>: Priority-based registry allows thick (SDK) providers to override thin (stdlib) providers</li>
+</ul>
+<h2 id="breaking-changes">Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permanent link">&para;</a></h2>
+<h3 id="module-path-changed">Module Path Changed<a class="headerlink" href="#module-path-changed" title="Permanent link">&para;</a></h3>
+<p>The Go module path has changed from <code>github.com/plexusone/omnillm</code> to <code>github.com/plexusone/omnillm-core</code>.</p>
+<p><strong>Migration:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Before</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;github.com/plexusone/omnillm&quot;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1">// After</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;github.com/plexusone/omnillm-core&quot;</span>
+</code></pre></div>
+<p>Or use the new batteries-included aggregator (once available):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="s">&quot;github.com/plexusone/omnillm&quot;</span>
+</code></pre></div>
+<h3 id="gemini-moved-to-separate-package">Gemini Moved to Separate Package<a class="headerlink" href="#gemini-moved-to-separate-package" title="Permanent link">&para;</a></h3>
+<p>Gemini is no longer included in omnillm-core. Install it separately:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>go<span class="w"> </span>get<span class="w"> </span>github.com/plexusone/omnillm-gemini
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="s">&quot;github.com/plexusone/omnillm-core&quot;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nx">_</span><span class="w"> </span><span class="s">&quot;github.com/plexusone/omnillm-gemini&quot;</span><span class="w"> </span><span class="c1">// Register Gemini provider</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">)</span>
+</code></pre></div>
+<h2 id="thinthick-provider-architecture">Thin/Thick Provider Architecture<a class="headerlink" href="#thinthick-provider-architecture" title="Permanent link">&para;</a></h2>
+<p>omnillm-core now implements a <strong>thin/thick provider architecture</strong>:</p>
+<h3 id="thin-providers-omnillm-core">Thin Providers (omnillm-core)<a class="headerlink" href="#thin-providers-omnillm-core" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Native HTTP implementations using only Go stdlib</li>
+<li>Zero external SDK dependencies</li>
+<li>Lightweight and fast to compile</li>
+<li>Providers: OpenAI, Anthropic, X.AI, GLM, Kimi, Qwen, Ollama</li>
+</ul>
+<h3 id="thick-providers-separate-packages">Thick Providers (Separate Packages)<a class="headerlink" href="#thick-providers-separate-packages" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use official SDKs from providers</li>
+<li>Override thin providers when imported</li>
+<li>Better API coverage and error handling</li>
+</ul>
 <table>
 <thead>
 <tr>
-<th>Version</th>
-<th>Date</th>
-<th>Highlights</th>
+<th>Provider</th>
+<th>Thin (omnillm-core)</th>
+<th>Thick Package</th>
+<th>SDK</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../v0.12.0/">v0.12.0</a></td>
-<td>2026-02-22</td>
-<td>Tool/function calling support for OpenAI</td>
+<td>OpenAI</td>
+<td>✅</td>
+<td>omnillm-openai</td>
+<td>openai-go</td>
 </tr>
 <tr>
-<td><a href="../v0.11.0/">v0.11.0</a></td>
-<td>2026-01-10</td>
-<td>Multi-provider configuration, Grok 4 models</td>
+<td>Anthropic</td>
+<td>✅</td>
+<td>omnillm-anthropic</td>
+<td>anthropic-sdk-go</td>
 </tr>
 <tr>
-<td><a href="../v0.10.0/">v0.10.0</a></td>
-<td>2026-01-04</td>
-<td>Response caching, token estimation</td>
+<td>Gemini</td>
+<td>❌</td>
+<td>omnillm-gemini</td>
+<td>google genai</td>
 </tr>
 <tr>
-<td><a href="../v0.9.0/">v0.9.0</a></td>
-<td>2026-01-04</td>
-<td>Circuit breaker, fallback providers</td>
+<td>X.AI</td>
+<td>✅</td>
+<td>—</td>
+<td>—</td>
 </tr>
 <tr>
-<td><a href="../v0.8.0/">v0.8.0</a></td>
-<td>2026-01-04</td>
-<td>Observability hooks</td>
+<td>GLM</td>
+<td>✅</td>
+<td>—</td>
+<td>—</td>
 </tr>
 <tr>
-<td><a href="../v0.7.0/">v0.7.0</a></td>
-<td>2025-12-26</td>
-<td>Conversation memory, X.AI provider</td>
+<td>Kimi</td>
+<td>✅</td>
+<td>—</td>
+<td>—</td>
 </tr>
 <tr>
-<td><a href="../v0.6.0/">v0.6.0</a></td>
-<td>2025-12-26</td>
-<td>External provider support, Bedrock</td>
+<td>Qwen</td>
+<td>✅</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Ollama</td>
+<td>✅</td>
+<td>—</td>
+<td>—</td>
 </tr>
 </tbody>
 </table>
-<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
-<p>OmniLLM follows <a href="https://semver.org/">Semantic Versioning</a>:</p>
+<h2 id="provider-registry">Provider Registry<a class="headerlink" href="#provider-registry" title="Permanent link">&para;</a></h2>
+<p>New priority-based registry allows thick providers to override thin providers:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Thick providers register with higher priority</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">func</span><span class="w"> </span><span class="nx">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">RegisterProvider</span><span class="p">(</span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">ProviderNameOpenAI</span><span class="p">,</span><span class="w"> </span><span class="nx">NewProvider</span><span class="p">,</span><span class="w"> </span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">PriorityThick</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Priority Constants:</strong></p>
 <ul>
-<li><strong>MAJOR</strong>: Breaking API changes</li>
-<li><strong>MINOR</strong>: New features (backwards compatible)</li>
-<li><strong>PATCH</strong>: Bug fixes (backwards compatible)</li>
+<li><code>PriorityThin</code> (0): Default for stdlib providers</li>
+<li><code>PriorityThick</code> (10): SDK-based providers that override thin</li>
 </ul>
-<h2 id="full-changelog">Full Changelog<a class="headerlink" href="#full-changelog" title="Permanent link">&para;</a></h2>
-<p>See <a href="https://github.com/plexusone/omnillm/blob/main/CHANGELOG.md">CHANGELOG.md</a> for the complete changelog in Keep a Changelog format.</p>
+<p><strong>Registry Functions:</strong></p>
+<ul>
+<li><code>RegisterProvider(name, factory, priority)</code>: Register a provider factory</li>
+<li><code>GetProviderFactory(name)</code>: Get the highest-priority factory for a provider</li>
+<li><code>ListRegisteredProviders()</code>: List all registered provider names</li>
+<li><code>GetProviderPriority(name)</code>: Get the priority of a registered provider</li>
+</ul>
+<h2 id="compatibility-exports">Compatibility Exports<a class="headerlink" href="#compatibility-exports" title="Permanent link">&para;</a></h2>
+<p>New exports for thick provider compatibility:</p>
+<ul>
+<li><code>Capabilities</code> struct for provider feature detection</li>
+<li><code>ErrInvalidAPIKey</code> alias for <code>ErrEmptyAPIKey</code></li>
+<li><code>NewAPIError(provider, statusCode, errorType, message)</code> for thick provider error creation</li>
+<li><code>NewAPIErrorFull(provider, statusCode, message, errorType, code)</code> for full error details</li>
+</ul>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Core package (thin providers)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>go<span class="w"> </span>get<span class="w"> </span>github.com/plexusone/omnillm-core@v0.15.0
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Optional thick providers</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>go<span class="w"> </span>get<span class="w"> </span>github.com/plexusone/omnillm-openai
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>go<span class="w"> </span>get<span class="w"> </span>github.com/plexusone/omnillm-anthropic
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>go<span class="w"> </span>get<span class="w"> </span>github.com/plexusone/omnillm-gemini
+</code></pre></div>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Removed: <code>google.golang.org/genai</code> (moved to omnillm-gemini)</li>
+<li>Updated: <code>github.com/grokify/mogo</code> to 0.74.1</li>
+</ul>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Added thin/thick provider architecture design document</li>
+<li>Updated installation guide with thick provider information</li>
+<li>Updated Gemini docs to indicate separate package</li>
+</ul>
 
 
 
