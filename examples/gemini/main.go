@@ -1,3 +1,5 @@
+//go:build ignore
+
 package main
 
 import (
@@ -7,6 +9,11 @@ import (
 	"os"
 
 	"github.com/plexusone/omnillm"
+
+	// Import omnillm-gemini to register the Gemini provider.
+	// This is required because Gemini uses a heavy SDK dependency
+	// and is not included in omnillm-core by default.
+	_ "github.com/plexusone/omnillm-gemini"
 )
 
 func main() {
