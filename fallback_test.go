@@ -170,7 +170,7 @@ func TestFallbackProvider_PrimarySuccess(t *testing.T) {
 
 func TestFallbackProvider_FallbackOnError(t *testing.T) {
 	primary := newMockProvider("primary")
-	primary.completionErr = NewAPIError("primary", 500, "server error", "server_error", "500")
+	primary.completionErr = NewAPIErrorFull("primary", 500, "server error", "server_error", "500")
 
 	fallback := newMockProvider("fallback")
 
@@ -201,7 +201,7 @@ func TestFallbackProvider_FallbackOnError(t *testing.T) {
 
 func TestFallbackProvider_NoFallbackOnAuthError(t *testing.T) {
 	primary := newMockProvider("primary")
-	primary.completionErr = NewAPIError("primary", 401, "unauthorized", "auth_error", "401")
+	primary.completionErr = NewAPIErrorFull("primary", 401, "unauthorized", "auth_error", "401")
 
 	fallback := newMockProvider("fallback")
 
@@ -224,10 +224,10 @@ func TestFallbackProvider_NoFallbackOnAuthError(t *testing.T) {
 
 func TestFallbackProvider_AllProvidersFail(t *testing.T) {
 	primary := newMockProvider("primary")
-	primary.completionErr = NewAPIError("primary", 500, "server error", "server_error", "500")
+	primary.completionErr = NewAPIErrorFull("primary", 500, "server error", "server_error", "500")
 
 	fallback := newMockProvider("fallback")
-	fallback.completionErr = NewAPIError("fallback", 503, "service unavailable", "unavailable", "503")
+	fallback.completionErr = NewAPIErrorFull("fallback", 503, "service unavailable", "unavailable", "503")
 
 	fp := NewFallbackProvider(primary, []provider.Provider{fallback}, nil)
 
@@ -253,7 +253,7 @@ func TestFallbackProvider_AllProvidersFail(t *testing.T) {
 
 func TestFallbackProvider_WithCircuitBreaker(t *testing.T) {
 	primary := newMockProvider("primary")
-	primary.completionErr = NewAPIError("primary", 500, "server error", "server_error", "500")
+	primary.completionErr = NewAPIErrorFull("primary", 500, "server error", "server_error", "500")
 
 	fallback := newMockProvider("fallback")
 
@@ -350,7 +350,7 @@ func TestFallbackProvider_StreamingSuccess(t *testing.T) {
 
 func TestFallbackProvider_StreamingFallback(t *testing.T) {
 	primary := newMockProvider("primary")
-	primary.streamErr = NewAPIError("primary", 500, "server error", "server_error", "500")
+	primary.streamErr = NewAPIErrorFull("primary", 500, "server error", "server_error", "500")
 
 	fallback := newMockProvider("fallback")
 
