@@ -1,10 +1,46 @@
 {
   "irVersion": "1.0",
-  "project": "omnillm",
-  "repository": "https://github.com/plexusone/omnillm",
+  "project": "omnillm-core",
+  "repository": "https://github.com/plexusone/omnillm-core",
   "versioning": "semver",
   "commitConvention": "conventional",
   "releases": [
+    {
+      "version": "v0.15.0",
+      "date": "2026-04-11",
+      "highlights": [
+        { "description": "**Module Rename**: `omnillm` → `omnillm-core` with thin/thick provider architecture" },
+        { "description": "**Gemini Extracted**: Moved to separate `omnillm-gemini` package, removing heavy `google.golang.org/genai` dependency" },
+        { "description": "**Provider Registry**: Priority-based registry allows thick (SDK) providers to override thin (stdlib) providers" }
+      ],
+      "breaking": [
+        { "description": "Go module path changed from `github.com/plexusone/omnillm` to `github.com/plexusone/omnillm-core`", "commit": "733ab20" },
+        { "description": "Gemini provider removed from core; use `github.com/plexusone/omnillm-gemini` instead", "commit": "1dde91f" }
+      ],
+      "added": [
+        { "description": "Provider registry with `RegisterProvider()`, `GetProviderFactory()`, and priority-based override", "commit": "55b2058" },
+        { "description": "`PriorityThin` (0) and `PriorityThick` (10) constants for provider registration", "commit": "55b2058" },
+        { "description": "Compatibility exports for thick providers: `Capabilities`, `ErrInvalidAPIKey`, `NewAPIError`, `NewAPIErrorFull`", "commit": "8834dda" },
+        { "description": "PlexusOne unified navigation bar for MkDocs documentation", "commit": "37180c0" },
+        { "description": "Enterprise mega menu with categorized product links", "commit": "28d18a1" }
+      ],
+      "changed": [
+        { "description": "Provider creation uses registry lookup instead of switch statement", "commit": "4753a80" },
+        { "description": "MkDocs theme uses CDN-hosted PlexusOne CSS", "commit": "bf496c2" },
+        { "description": "Shared plexus-nav.js from plexusone.dev for navigation", "commit": "141bfe1" }
+      ],
+      "fixed": [
+        { "description": "Fallback tests updated to use `NewAPIErrorFull` for new API signature", "commit": "d95271e" },
+        { "description": "Search input text color in MkDocs dark mode", "commit": "40f165f" }
+      ],
+      "documentation": [
+        { "description": "Thin/thick provider architecture design document (`REFACTOR_THIN_THICK_PLAN.md`)", "commit": "131972b" }
+      ],
+      "dependencies": [
+        { "description": "`google.golang.org/genai` removed (moved to omnillm-gemini)", "commit": "1dde91f" },
+        { "description": "`github.com/grokify/mogo` upgraded to 0.74.1", "commit": "d5dd3a7" }
+      ]
+    },
     {
       "version": "v0.14.0",
       "date": "2026-03-16",
