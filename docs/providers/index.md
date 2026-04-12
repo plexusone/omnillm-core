@@ -15,13 +15,35 @@ OmniLLM supports multiple LLM providers through a unified interface. Each provid
 | [Qwen](qwen.md) | Built-in | Alibaba Cloud Qwen3, QwQ, Qwen2.5 |
 | [Ollama](ollama.md) | Built-in | Local models (Llama, Mistral, etc.) |
 
+## Batteries Included
+
+For a batteries-included experience with additional providers and official SDK implementations, use [omnillm](https://github.com/plexusone/omnillm):
+
+```bash
+go get github.com/plexusone/omnillm
+```
+
+This adds:
+
+| Provider | Module | Description |
+|----------|--------|-------------|
+| Google Gemini | `omnillm-gemini` | Thick provider using official `google.golang.org/genai` SDK |
+| AWS Bedrock | `omnillm-bedrock` | Thick provider using official AWS SDK v2 |
+| OpenAI | `omnillm-openai` | Thick provider using official `openai-go` SDK |
+| Anthropic | `omnillm-anthropic` | Thick provider using official `anthropic-sdk-go` SDK |
+
+Thick providers use official SDKs for full API coverage, automatic retries, and SDK-managed authentication. They automatically override thin providers when imported.
+
 ## External Providers
 
-Some providers with heavy SDK dependencies are available as separate modules:
+Thick providers can also be imported individually:
 
 | Provider | Module | Why External |
 |----------|--------|--------------|
 | [AWS Bedrock](bedrock.md) | `github.com/plexusone/omnillm-bedrock` | AWS SDK v2 adds 17+ transitive dependencies |
+| Google Gemini | `github.com/plexusone/omnillm-gemini` | Official genai SDK |
+| OpenAI | `github.com/plexusone/omnillm-openai` | Official openai-go SDK |
+| Anthropic | `github.com/plexusone/omnillm-anthropic` | Official anthropic-sdk-go SDK |
 
 ## Multi-Provider Configuration
 
