@@ -1,4 +1,4 @@
-github.com/grokify/mogo v0.74.2 h1:sEuHSkp8W0b5WQNTrfX00nC4FtBa1Xk59sHba7HPo3M=
-github.com/grokify/mogo v0.74.2/go.mod h1:s3vcTH43UicVMGkf6bm5hXzXqjuM1CB9MtyQ4+3wIIw=
-github.com/grokify/sogo v0.14.0 h1:BjhTRzur/V9DzPslKy5TLqxLna3O6EXe4b1WLyOIbLM=
-github.com/grokify/sogo v0.14.0/go.mod h1:VlV8J7HJQMs9trLT2qeHYOCcXGhYuuKfd48flANwlX0=
+github.com/grokify/mogo v0.74.4 h1:p4yEWyysrHCJvUedgIa1w5pBQKJIQR5h62rw5XhxUdg=
+github.com/grokify/mogo v0.74.4/go.mod h1:/m/+CAawH0Tnqn8v1oOfaPsLlKO6F4wFiq83Y38cIq4=
+github.com/grokify/sogo v0.15.0 h1:RS4DPxNhZQLmz/qcLa5t1Mr+SjGwSZPJgpefp9BJInE=
+github.com/grokify/sogo v0.15.0/go.mod h1:BZjNVHThtkfC80J2kcPWCytQzu5XKtHTxCRffpZaWb8=
