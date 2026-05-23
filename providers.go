@@ -77,3 +77,11 @@ func newQwenProvider(config ProviderConfig) (provider.Provider, error) {
 	}
 	return qwen.NewProvider(config.APIKey, config.BaseURL, getHTTPClientFromProviderConfig(config)), nil
 }
+
+// newOpenAIEmbeddingProvider creates a new OpenAI embedding provider adapter
+func newOpenAIEmbeddingProvider(config ProviderConfig) (provider.EmbeddingProvider, error) {
+	if config.APIKey == "" {
+		return nil, ErrEmptyAPIKey
+	}
+	return openai.NewEmbeddingProvider(config.APIKey, config.BaseURL, getHTTPClientFromProviderConfig(config)), nil
+}
