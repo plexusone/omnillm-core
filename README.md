@@ -32,6 +32,7 @@ OmniLLM is a unified Go SDK that provides a consistent interface for interacting
 - **🔌 Multi-Provider Support**: OpenAI, Anthropic (Claude), Google Gemini, X.AI (Grok), GLM (Zhipu AI), Kimi (Moonshot AI), Qwen (Alibaba Cloud), Ollama, plus [external providers](#external-providers) (AWS Bedrock, etc.)
 - **🎯 Unified API**: Same interface across all providers
 - **📡 Streaming Support**: Real-time response streaming for all providers
+- **🔤 Embeddings API**: Text-to-vector conversion for semantic search and RAG workflows
 - **🧠 Conversation Memory**: Persistent conversation history using Key-Value Stores
 - **🔀 Fallback Providers**: Automatic failover to backup providers when primary fails
 - **⚡ Circuit Breaker**: Prevent cascading failures by temporarily skipping unhealthy providers
@@ -364,12 +365,66 @@ for {
     if err != nil {
         log.Fatal(err)
     }
-    
+
     if len(chunk.Choices) > 0 && chunk.Choices[0].Delta != nil {
         fmt.Print(chunk.Choices[0].Delta.Content)
     }
 }
 fmt.Println()
+```
+
+## 🔤 Embeddings
+
+OmniLLM supports text embeddings for semantic search, similarity matching, and RAG workflows.
+
+```go
+import (
+    "github.com/plexusone/omnillm-core"
+    "github.com/plexusone/omnillm-core/provider"
+)
+
+// Get an embedding provider
+embeddingProvider, err := omnillm.GetEmbeddingProvider(
+    omnillm.ProviderNameOpenAI,
+    omnillm.ProviderConfig{APIKey: "your-api-key"},
+)
+if err != nil {
+    log.Fatal(err)
+}
+defer embeddingProvider.Close()
+
+// Create embeddings
+resp, err := embeddingProvider.CreateEmbedding(ctx, &provider.EmbeddingRequest{
+    Model: "text-embedding-3-small",
+    Input: []string{"Hello world", "How are you?"},
+})
+if err != nil {
+    log.Fatal(err)
+}
+
+// Access the vectors
+for _, data := range resp.Data {
+    fmt.Printf("Index %d: %d dimensions\n", data.Index, len(data.Embedding))
+}
+```
+
+### Supported Embedding Models
+
+| Provider | Models | Dimensions |
+|----------|--------|------------|
+| OpenAI | text-embedding-3-small | 512-1536 |
+| OpenAI | text-embedding-3-large | 256-3072 |
+| OpenAI | text-embedding-ada-002 | 1536 |
+
+### Custom Dimensions
+
+```go
+dims := 512
+resp, err := embeddingProvider.CreateEmbedding(ctx, &provider.EmbeddingRequest{
+    Model:      "text-embedding-3-small",
+    Input:      []string{"Hello world"},
+    Dimensions: &dims, // Reduce dimensions for storage efficiency
+})
 ```
 
 ## 🧠 Conversation Memory
