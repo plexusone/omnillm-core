@@ -563,6 +563,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embeddings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Embeddings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-embedding-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Embedding Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Dimensions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#custom-endpoint" class="md-nav__link">
     <span class="md-ellipsis">
       Custom Endpoint
@@ -852,6 +894,29 @@
   
   <span class="md-ellipsis">
     Streaming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Embeddings
     
   </span>
   
@@ -1171,6 +1236,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../releases/v0.16.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    v0.16.0
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../releases/v0.15.0/" class="md-nav__link">
         
   
@@ -1464,6 +1552,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#embeddings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Embeddings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Embeddings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-embedding-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Embedding Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Dimensions
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#custom-endpoint" class="md-nav__link">
     <span class="md-ellipsis">
       Custom Endpoint
@@ -1495,7 +1625,8 @@
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Models</strong>: GPT-5, GPT-4.1, GPT-4o, GPT-4o-mini, GPT-4-turbo, GPT-3.5-turbo</li>
-<li><strong>Features</strong>: Chat completions, streaming, function/tool calling</li>
+<li><strong>Embedding Models</strong>: text-embedding-3-small, text-embedding-3-large, text-embedding-ada-002</li>
+<li><strong>Features</strong>: Chat completions, streaming, function/tool calling, embeddings</li>
 </ul>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">ClientConfig</span><span class="p">{</span>
@@ -1574,17 +1705,71 @@
 <a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="p">},</span>
 <a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="p">})</span>
 </code></pre></div>
+<h2 id="embeddings">Embeddings<a class="headerlink" href="#embeddings" title="Permanent link">&para;</a></h2>
+<p>OpenAI provides text embedding models for semantic search and RAG workflows.</p>
+<h3 id="available-embedding-models">Available Embedding Models<a class="headerlink" href="#available-embedding-models" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Dimensions</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text-embedding-3-small</code></td>
+<td>512-1536</td>
+<td>Efficient, cost-effective</td>
+</tr>
+<tr>
+<td><code>text-embedding-3-large</code></td>
+<td>256-3072</td>
+<td>Higher quality</td>
+</tr>
+<tr>
+<td><code>text-embedding-ada-002</code></td>
+<td>1536</td>
+<td>Legacy model</td>
+</tr>
+</tbody>
+</table>
+<h3 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">embeddingProvider</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">GetEmbeddingProvider</span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">ProviderNameOpenAI</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">ProviderConfig</span><span class="p">{</span><span class="nx">APIKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;your-openai-api-key&quot;</span><span class="p">},</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">defer</span><span class="w"> </span><span class="nx">embeddingProvider</span><span class="p">.</span><span class="nx">Close</span><span class="p">()</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">embeddingProvider</span><span class="p">.</span><span class="nx">CreateEmbedding</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">provider</span><span class="p">.</span><span class="nx">EmbeddingRequest</span><span class="p">{</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nx">Model</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;text-embedding-3-small&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="nx">Input</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;Hello world&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;How are you?&quot;</span><span class="p">},</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">})</span>
+</code></pre></div>
+<h3 id="custom-dimensions">Custom Dimensions<a class="headerlink" href="#custom-dimensions" title="Permanent link">&para;</a></h3>
+<p>Reduce dimensions to save storage while maintaining quality:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nx">dims</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">512</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">embeddingProvider</span><span class="p">.</span><span class="nx">CreateEmbedding</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">provider</span><span class="p">.</span><span class="nx">EmbeddingRequest</span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nx">Model</span><span class="p">:</span><span class="w">      </span><span class="s">&quot;text-embedding-3-small&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nx">Input</span><span class="p">:</span><span class="w">      </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;Hello world&quot;</span><span class="p">},</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nx">Dimensions</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">dims</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">})</span>
+</code></pre></div>
+<p>See <a href="../../features/embeddings/">Embeddings Feature Guide</a> for more details.</p>
 <h2 id="custom-endpoint">Custom Endpoint<a class="headerlink" href="#custom-endpoint" title="Permanent link">&para;</a></h2>
 <p>Use a custom OpenAI-compatible endpoint:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">ClientConfig</span><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nx">Providers</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">ProviderConfig</span><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">            </span><span class="nx">Provider</span><span class="p">:</span><span class="w"> </span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">ProviderNameOpenAI</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">            </span><span class="nx">APIKey</span><span class="p">:</span><span class="w">   </span><span class="s">&quot;your-api-key&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">            </span><span class="nx">BaseURL</span><span class="p">:</span><span class="w">  </span><span class="s">&quot;https://your-custom-endpoint.com/v1&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="p">},</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">})</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">NewClient</span><span class="p">(</span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">ClientConfig</span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nx">Providers</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">ProviderConfig</span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">            </span><span class="nx">Provider</span><span class="p">:</span><span class="w"> </span><span class="nx">omnillm</span><span class="p">.</span><span class="nx">ProviderNameOpenAI</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">            </span><span class="nx">APIKey</span><span class="p">:</span><span class="w">   </span><span class="s">&quot;your-api-key&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">            </span><span class="nx">BaseURL</span><span class="p">:</span><span class="w">  </span><span class="s">&quot;https://your-custom-endpoint.com/v1&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="p">},</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">})</span>
 </code></pre></div>
 
 
