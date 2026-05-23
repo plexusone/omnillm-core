@@ -224,3 +224,64 @@ func (s *StreamAdapter) Recv() (*provider.ChatCompletionChunk, error) {
 func (s *StreamAdapter) Close() error {
 	return s.stream.Close()
 }
+
+// EmbeddingProvider represents the OpenAI embedding provider adapter
+type EmbeddingProvider struct {
+	client *Client
+}
+
+// NewEmbeddingProvider creates a new OpenAI embedding provider adapter
+func NewEmbeddingProvider(apiKey, baseURL string, httpClient *http.Client) provider.EmbeddingProvider {
+	client := New(apiKey, baseURL, httpClient)
+	return &EmbeddingProvider{client: client}
+}
+
+// Name returns the provider name
+func (p *EmbeddingProvider) Name() string {
+	return p.client.Name()
+}
+
+// CreateEmbedding creates embeddings for the given input texts
+func (p *EmbeddingProvider) CreateEmbedding(ctx context.Context, req *provider.EmbeddingRequest) (*provider.EmbeddingResponse, error) {
+	// Convert from unified format to OpenAI format
+	openaiReq := &EmbeddingRequest{
+		Model:      req.Model,
+		Input:      req.Input,
+		Dimensions: req.Dimensions,
+		User:       req.User,
+	}
+
+	if req.EncodingFormat != "" {
+		openaiReq.EncodingFormat = string(req.EncodingFormat)
+	}
+
+	resp, err := p.client.CreateEmbedding(ctx, openaiReq)
+	if err != nil {
+		return nil, err
+	}
+
+	// Convert back to unified format
+	result := &provider.EmbeddingResponse{
+		Object: resp.Object,
+		Model:  resp.Model,
+		Usage: provider.EmbeddingUsage{
+			PromptTokens: resp.Usage.PromptTokens,
+			TotalTokens:  resp.Usage.TotalTokens,
+		},
+	}
+
+	for _, data := range resp.Data {
+		result.Data = append(result.Data, provider.EmbeddingData{
+			Object:    data.Object,
+			Index:     data.Index,
+			Embedding: data.Embedding,
+		})
+	}
+
+	return result, nil
+}
+
+// Close closes the provider
+func (p *EmbeddingProvider) Close() error {
+	return p.client.Close()
+}

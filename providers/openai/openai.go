@@ -124,6 +124,46 @@ func (c *Client) CreateCompletionStream(ctx context.Context, req *Request) (*Str
 	}, nil
 }
 
+// CreateEmbedding creates embeddings for the given input texts
+func (c *Client) CreateEmbedding(ctx context.Context, req *EmbeddingRequest) (*EmbeddingResponse, error) {
+	if req.Model == "" {
+		return nil, fmt.Errorf("model cannot be empty")
+	}
+	if len(req.Input) == 0 {
+		return nil, fmt.Errorf("input cannot be empty")
+	}
+
+	reqBody, err := json.Marshal(req)
+	if err != nil {
+		return nil, fmt.Errorf("failed to marshal request: %w", err)
+	}
+
+	httpReq, err := http.NewRequestWithContext(ctx, "POST", c.baseURL+"/embeddings", bytes.NewBuffer(reqBody))
+	if err != nil {
+		return nil, fmt.Errorf("failed to create request: %w", err)
+	}
+
+	httpReq.Header.Set("Content-Type", "application/json")
+	httpReq.Header.Set("Authorization", "Bearer "+c.apiKey)
+
+	resp, err := c.client.Do(httpReq) //nolint:gosec // G704: baseURL is configured at client init, not user-controlled per-request
+	if err != nil {
+		return nil, fmt.Errorf("request failed: %w", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, c.handleErrorResponse(resp)
+	}
+
+	var response EmbeddingResponse
+	if err := json.NewDecoder(resp.Body).Decode(&response); err != nil {
+		return nil, fmt.Errorf("failed to decode response: %w", err)
+	}
+
+	return &response, nil
+}
+
 // Close closes the client
 func (c *Client) Close() error {
 	return nil

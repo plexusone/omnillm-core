@@ -102,3 +102,33 @@ type StreamChoice struct {
 	Delta        *Message `json:"delta,omitempty"`
 	FinishReason *string  `json:"finish_reason"`
 }
+
+// EmbeddingRequest represents an OpenAI embedding request
+type EmbeddingRequest struct {
+	Model          string   `json:"model"`
+	Input          []string `json:"input"`
+	EncodingFormat string   `json:"encoding_format,omitempty"`
+	Dimensions     *int     `json:"dimensions,omitempty"`
+	User           *string  `json:"user,omitempty"`
+}
+
+// EmbeddingResponse represents an OpenAI embedding response
+type EmbeddingResponse struct {
+	Object string          `json:"object"`
+	Data   []EmbeddingData `json:"data"`
+	Model  string          `json:"model"`
+	Usage  EmbeddingUsage  `json:"usage"`
+}
+
+// EmbeddingData represents a single embedding
+type EmbeddingData struct {
+	Object    string    `json:"object"`
+	Index     int       `json:"index"`
+	Embedding []float64 `json:"embedding"`
+}
+
+// EmbeddingUsage represents token usage for embeddings
+type EmbeddingUsage struct {
+	PromptTokens int `json:"prompt_tokens"`
+	TotalTokens  int `json:"total_tokens"`
+}
