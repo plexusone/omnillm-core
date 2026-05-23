@@ -36,3 +36,26 @@ type ChatCompletionStream interface {
 	// Close closes the stream
 	Close() error
 }
+
+// EmbeddingProvider defines the interface for embedding providers.
+// Embedding providers convert text into vector representations for semantic search,
+// similarity matching, and retrieval-augmented generation (RAG).
+//
+// Example usage:
+//
+//	provider, _ := omnillm.GetEmbeddingProvider("openai", omnillm.WithAPIKey(key))
+//	resp, _ := provider.CreateEmbedding(ctx, &provider.EmbeddingRequest{
+//	    Model: "text-embedding-3-small",
+//	    Input: []string{"Hello world", "How are you?"},
+//	})
+//	vectors := resp.Data // []EmbeddingData with Vector []float64
+type EmbeddingProvider interface {
+	// CreateEmbedding creates embeddings for the given input texts
+	CreateEmbedding(ctx context.Context, req *EmbeddingRequest) (*EmbeddingResponse, error)
+
+	// Close closes the provider and cleans up resources
+	Close() error
+
+	// Name returns the provider name
+	Name() string
+}

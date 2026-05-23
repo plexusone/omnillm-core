@@ -112,3 +112,72 @@ type ChatCompletionChunk struct {
 	Usage             *Usage                 `json:"usage,omitempty"`
 	ProviderMetadata  map[string]any         `json:"provider_metadata,omitempty"` // Provider-specific metadata
 }
+
+// EmbeddingEncodingFormat specifies the format of the embedding vectors
+type EmbeddingEncodingFormat string
+
+const (
+	// EmbeddingEncodingFormatFloat returns embeddings as float arrays (default)
+	EmbeddingEncodingFormatFloat EmbeddingEncodingFormat = "float"
+	// EmbeddingEncodingFormatBase64 returns embeddings as base64-encoded bytes
+	EmbeddingEncodingFormatBase64 EmbeddingEncodingFormat = "base64"
+)
+
+// EmbeddingRequest represents a request for text embeddings
+type EmbeddingRequest struct {
+	// Model is the embedding model to use (e.g., "text-embedding-3-small")
+	Model string `json:"model"`
+
+	// Input is the text(s) to embed. Can be a single string or array of strings.
+	Input []string `json:"input"`
+
+	// EncodingFormat specifies the format of the returned embeddings (optional)
+	// Defaults to "float". Some providers support "base64" for efficiency.
+	EncodingFormat EmbeddingEncodingFormat `json:"encoding_format,omitempty"`
+
+	// Dimensions specifies the number of dimensions for the output vectors (optional)
+	// Only supported by some models (e.g., text-embedding-3-small/large)
+	Dimensions *int `json:"dimensions,omitempty"`
+
+	// User is an optional unique identifier for the end-user
+	User *string `json:"user,omitempty"`
+}
+
+// EmbeddingResponse represents a response from embedding creation
+type EmbeddingResponse struct {
+	// Object is the object type (always "list" for embeddings)
+	Object string `json:"object"`
+
+	// Data contains the embedding vectors
+	Data []EmbeddingData `json:"data"`
+
+	// Model is the model used to generate the embeddings
+	Model string `json:"model"`
+
+	// Usage contains token usage information
+	Usage EmbeddingUsage `json:"usage"`
+
+	// ProviderMetadata contains provider-specific metadata
+	ProviderMetadata map[string]any `json:"provider_metadata,omitempty"`
+}
+
+// EmbeddingData represents a single embedding vector
+type EmbeddingData struct {
+	// Object is the object type (always "embedding")
+	Object string `json:"object"`
+
+	// Index is the index of this embedding in the input array
+	Index int `json:"index"`
+
+	// Embedding is the vector representation as float64 values
+	Embedding []float64 `json:"embedding"`
+}
+
+// EmbeddingUsage represents token usage for embedding requests
+type EmbeddingUsage struct {
+	// PromptTokens is the number of tokens in the input
+	PromptTokens int `json:"prompt_tokens"`
+
+	// TotalTokens is the total number of tokens used
+	TotalTokens int `json:"total_tokens"`
+}
