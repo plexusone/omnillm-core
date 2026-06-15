@@ -6,6 +6,20 @@
   "commitConvention": "conventional",
   "releases": [
     {
+      "version": "v0.17.0",
+      "date": "2026-06-15",
+      "highlights": [
+        { "description": "**Claude 4.5 Models**: Full model constant support for Claude Opus 4.5, Sonnet 4.5, and Haiku 4.5 across Bedrock and Vertex AI" }
+      ],
+      "added": [
+        { "description": "`BedrockClaudeOpus4_5`, `BedrockClaudeSonnet4_5`, `BedrockClaudeHaiku4_5` model constants for AWS Bedrock", "commit": "3575a56" },
+        { "description": "`BedrockClaudeOpus4_1`, `BedrockClaudeSonnet4` model constants for AWS Bedrock", "commit": "3575a56" },
+        { "description": "`VertexClaudeOpus4_5`, `VertexClaudeSonnet4_5`, `VertexClaudeHaiku4_5` model constants for Google Vertex AI", "commit": "76695d8" },
+        { "description": "`VertexClaudeOpus4_1`, `VertexClaudeSonnet4` model constants for Google Vertex AI", "commit": "76695d8" },
+        { "description": "Re-exported Claude 4.5 and 4.x model constants in `constants.go` for backwards compatibility", "commit": "553e396" }
+      ]
+    },
+    {
       "version": "v0.16.0",
       "date": "2026-05-23",
       "highlights": [
