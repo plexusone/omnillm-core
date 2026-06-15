@@ -10,22 +10,32 @@ const (
 	AnthropicAPIURL = "https://docs.anthropic.com/en/api"
 )
 
-// Claude 4.5 Family (Latest)
+// Claude Fable 5 and Mythos 5 (Latest frontier)
+const (
+	ClaudeFable5  = "claude-fable-5"  // Claude Fable 5 - Most capable widely released model
+	ClaudeMythos5 = "claude-mythos-5" // Claude Mythos 5 - Project Glasswing (limited availability)
+)
+
+// Claude 4.8/4.7/4.6 Family (Dateless format - still pinned snapshots)
+const (
+	ClaudeOpus4_8   = "claude-opus-4-8"   // Claude Opus 4.8 - Latest Opus-tier model
+	ClaudeOpus4_7   = "claude-opus-4-7"   // Claude Opus 4.7
+	ClaudeOpus4_6   = "claude-opus-4-6"   // Claude Opus 4.6
+	ClaudeSonnet4_6 = "claude-sonnet-4-6" // Claude Sonnet 4.6 - Latest Sonnet-tier model
+)
+
+// Claude 4.5 Family
 const (
 	ClaudeOpus4_5   = "claude-opus-4-5-20251101"   // Claude Opus 4.5 (November 2025)
 	ClaudeSonnet4_5 = "claude-sonnet-4-5-20250929" // Claude Sonnet 4.5 (September 2025)
 	ClaudeHaiku4_5  = "claude-haiku-4-5-20251001"  // Claude Haiku 4.5 (October 2025)
 )
 
-// Claude Opus 4 Family
+// Claude 4.x Family (Deprecated)
 const (
-	ClaudeOpus4_1 = "claude-opus-4-1-20250805" // Claude Opus 4.1 (August 2025)
-	ClaudeOpus4   = "claude-opus-4-20250514"   // Claude Opus 4 (May 2025)
-)
-
-// Claude Sonnet 4 Family
-const (
-	ClaudeSonnet4 = "claude-sonnet-4-20250514" // Claude Sonnet 4 (May 2025)
+	ClaudeOpus4_1 = "claude-opus-4-1-20250805" // Claude Opus 4.1 (August 2025) - Deprecated, retiring Aug 5, 2026
+	ClaudeOpus4   = "claude-opus-4-20250514"   // Claude Opus 4 (May 2025) - Deprecated, retiring Jun 15, 2026
+	ClaudeSonnet4 = "claude-sonnet-4-20250514" // Claude Sonnet 4 (May 2025) - Deprecated, retiring Jun 15, 2026
 )
 
 // Claude 3.7 Sonnet
