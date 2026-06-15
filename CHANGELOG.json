@@ -9,14 +9,22 @@
       "version": "v0.17.0",
       "date": "2026-06-15",
       "highlights": [
-        { "description": "**Claude 4.5 Models**: Full model constant support for Claude Opus 4.5, Sonnet 4.5, and Haiku 4.5 across Bedrock and Vertex AI" }
+        { "description": "**Claude Fable 5 & Mythos 5**: Support for Anthropic's latest frontier models" },
+        { "description": "**Claude 4.6-4.8**: Full model constant support across Claude API, Bedrock, and Vertex AI" }
       ],
       "added": [
+        { "description": "`ClaudeFable5`, `ClaudeMythos5` model constants for Anthropic's latest frontier models", "commit": "6d176dc" },
+        { "description": "`ClaudeOpus4_8`, `ClaudeOpus4_7`, `ClaudeOpus4_6`, `ClaudeSonnet4_6` model constants (dateless format)", "commit": "6d176dc" },
+        { "description": "`BedrockClaudeFable5`, `BedrockClaudeOpus4_8`, `BedrockClaudeOpus4_7`, `BedrockClaudeOpus4_6`, `BedrockClaudeSonnet4_6` for AWS Bedrock", "commit": "3b15f72" },
+        { "description": "`VertexClaudeFable5`, `VertexClaudeOpus4_8`, `VertexClaudeOpus4_7`, `VertexClaudeOpus4_6`, `VertexClaudeSonnet4_6` for Vertex AI", "commit": "3c6cbbf" },
         { "description": "`BedrockClaudeOpus4_5`, `BedrockClaudeSonnet4_5`, `BedrockClaudeHaiku4_5` model constants for AWS Bedrock", "commit": "3575a56" },
         { "description": "`BedrockClaudeOpus4_1`, `BedrockClaudeSonnet4` model constants for AWS Bedrock", "commit": "3575a56" },
         { "description": "`VertexClaudeOpus4_5`, `VertexClaudeSonnet4_5`, `VertexClaudeHaiku4_5` model constants for Google Vertex AI", "commit": "76695d8" },
         { "description": "`VertexClaudeOpus4_1`, `VertexClaudeSonnet4` model constants for Google Vertex AI", "commit": "76695d8" },
-        { "description": "Re-exported Claude 4.5 and 4.x model constants in `constants.go` for backwards compatibility", "commit": "553e396" }
+        { "description": "Re-exported all new Claude model constants in `constants.go`", "commit": "5343e9c" }
+      ],
+      "changed": [
+        { "description": "Claude 4.x models (Opus 4, Opus 4.1, Sonnet 4) marked as deprecated per Anthropic timeline", "commit": "6d176dc" }
       ]
     },
     {

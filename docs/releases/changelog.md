@@ -6,7 +6,7 @@ All notable changes to OmniLLM are documented in the individual release notes.
 
 | Version | Date | Highlights |
 |---------|------|------------|
-| [v0.17.0](v0.17.0.md) | 2026-06-15 | Claude 4.5 model constants for Bedrock and Vertex AI |
+| [v0.17.0](v0.17.0.md) | 2026-06-15 | Claude Fable 5, Mythos 5, and 4.6-4.8 model constants |
 | [v0.16.0](v0.16.0.md) | 2026-05-23 | Embeddings API with EmbeddingProvider interface |
 | [v0.15.0](v0.15.0.md) | 2026-04-11 | Module rename to omnillm-core, thin/thick architecture |
 | [v0.14.0](v0.14.0.md) | 2026-03-16 | GLM, Kimi, Qwen providers; conformance testing |
