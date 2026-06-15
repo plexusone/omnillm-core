@@ -34,12 +34,20 @@ const (
 // backwards compatibility with existing code.
 const (
 	// Bedrock Models - Re-exported from models package
-	ModelBedrockClaude3Opus   = models.BedrockClaude3Opus
-	ModelBedrockClaude3Sonnet = models.BedrockClaude3Sonnet
-	ModelBedrockClaudeOpus4   = models.BedrockClaudeOpus4
-	ModelBedrockTitan         = models.BedrockTitan
+	ModelBedrockClaudeOpus4_5   = models.BedrockClaudeOpus4_5
+	ModelBedrockClaudeSonnet4_5 = models.BedrockClaudeSonnet4_5
+	ModelBedrockClaudeHaiku4_5  = models.BedrockClaudeHaiku4_5
+	ModelBedrockClaudeOpus4_1   = models.BedrockClaudeOpus4_1
+	ModelBedrockClaudeOpus4     = models.BedrockClaudeOpus4
+	ModelBedrockClaudeSonnet4   = models.BedrockClaudeSonnet4
+	ModelBedrockClaude3Opus     = models.BedrockClaude3Opus
+	ModelBedrockClaude3Sonnet   = models.BedrockClaude3Sonnet
+	ModelBedrockTitan           = models.BedrockTitan
 
 	// Claude Models - Re-exported from models package
+	ModelClaudeOpus4_5   = models.ClaudeOpus4_5
+	ModelClaudeSonnet4_5 = models.ClaudeSonnet4_5
+	ModelClaudeHaiku4_5  = models.ClaudeHaiku4_5
 	ModelClaudeOpus4_1   = models.ClaudeOpus4_1
 	ModelClaudeOpus4     = models.ClaudeOpus4
 	ModelClaudeSonnet4   = models.ClaudeSonnet4
@@ -82,7 +90,12 @@ const (
 	ModelGPT35Turbo     = models.GPT35Turbo
 
 	// Vertex AI Models - Re-exported from models package
-	ModelVertexClaudeOpus4 = models.VertexClaudeOpus4
+	ModelVertexClaudeOpus4_5   = models.VertexClaudeOpus4_5
+	ModelVertexClaudeSonnet4_5 = models.VertexClaudeSonnet4_5
+	ModelVertexClaudeHaiku4_5  = models.VertexClaudeHaiku4_5
+	ModelVertexClaudeOpus4_1   = models.VertexClaudeOpus4_1
+	ModelVertexClaudeOpus4     = models.VertexClaudeOpus4
+	ModelVertexClaudeSonnet4   = models.VertexClaudeSonnet4
 
 	// X.AI Grok Models - Re-exported from models package
 	// Grok 4.1 (Latest - November 2025)
