@@ -34,6 +34,11 @@ const (
 // backwards compatibility with existing code.
 const (
 	// Bedrock Models - Re-exported from models package
+	ModelBedrockClaudeFable5    = models.BedrockClaudeFable5
+	ModelBedrockClaudeOpus4_8   = models.BedrockClaudeOpus4_8
+	ModelBedrockClaudeOpus4_7   = models.BedrockClaudeOpus4_7
+	ModelBedrockClaudeOpus4_6   = models.BedrockClaudeOpus4_6
+	ModelBedrockClaudeSonnet4_6 = models.BedrockClaudeSonnet4_6
 	ModelBedrockClaudeOpus4_5   = models.BedrockClaudeOpus4_5
 	ModelBedrockClaudeSonnet4_5 = models.BedrockClaudeSonnet4_5
 	ModelBedrockClaudeHaiku4_5  = models.BedrockClaudeHaiku4_5
@@ -45,6 +50,12 @@ const (
 	ModelBedrockTitan           = models.BedrockTitan
 
 	// Claude Models - Re-exported from models package
+	ModelClaudeFable5    = models.ClaudeFable5
+	ModelClaudeMythos5   = models.ClaudeMythos5
+	ModelClaudeOpus4_8   = models.ClaudeOpus4_8
+	ModelClaudeOpus4_7   = models.ClaudeOpus4_7
+	ModelClaudeOpus4_6   = models.ClaudeOpus4_6
+	ModelClaudeSonnet4_6 = models.ClaudeSonnet4_6
 	ModelClaudeOpus4_5   = models.ClaudeOpus4_5
 	ModelClaudeSonnet4_5 = models.ClaudeSonnet4_5
 	ModelClaudeHaiku4_5  = models.ClaudeHaiku4_5
@@ -90,6 +101,11 @@ const (
 	ModelGPT35Turbo     = models.GPT35Turbo
 
 	// Vertex AI Models - Re-exported from models package
+	ModelVertexClaudeFable5    = models.VertexClaudeFable5
+	ModelVertexClaudeOpus4_8   = models.VertexClaudeOpus4_8
+	ModelVertexClaudeOpus4_7   = models.VertexClaudeOpus4_7
+	ModelVertexClaudeOpus4_6   = models.VertexClaudeOpus4_6
+	ModelVertexClaudeSonnet4_6 = models.VertexClaudeSonnet4_6
 	ModelVertexClaudeOpus4_5   = models.VertexClaudeOpus4_5
 	ModelVertexClaudeSonnet4_5 = models.VertexClaudeSonnet4_5
 	ModelVertexClaudeHaiku4_5  = models.VertexClaudeHaiku4_5
