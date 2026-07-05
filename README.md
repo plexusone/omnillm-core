@@ -33,6 +33,7 @@ OmniLLM is a unified Go SDK that provides a consistent interface for interacting
 - **🎯 Unified API**: Same interface across all providers
 - **📡 Streaming Support**: Real-time response streaming for all providers
 - **🔤 Embeddings API**: Text-to-vector conversion for semantic search and RAG workflows
+- **🧠 Reasoning Control**: Unified `ReasoningEffort` and `ThinkingConfig` for controlling model reasoning depth
 - **🧠 Conversation Memory**: Persistent conversation history using Key-Value Stores
 - **🔀 Fallback Providers**: Automatic failover to backup providers when primary fails
 - **⚡ Circuit Breaker**: Prevent cascading failures by temporarily skipping unhealthy providers
@@ -427,7 +428,61 @@ resp, err := embeddingProvider.CreateEmbedding(ctx, &provider.EmbeddingRequest{
 })
 ```
 
-## 🧠 Conversation Memory
+## 🧠 Reasoning & Extended Thinking
+
+OmniLLM provides unified control over model reasoning depth across providers.
+
+### Reasoning Effort
+
+Control how deeply models reason using the `ReasoningEffort` field:
+
+```go
+effort := omnillm.ReasoningEffortHigh
+response, err := client.CreateChatCompletion(ctx, &omnillm.ChatCompletionRequest{
+    Model:           "o1-preview", // or claude-sonnet-4-6, grok-4-fast, etc.
+    ReasoningEffort: &effort,
+    Messages:        messages,
+})
+```
+
+| Constant | Value | Use Case |
+|----------|-------|----------|
+| `ReasoningEffortNone` | `"none"` | Disable reasoning |
+| `ReasoningEffortLow` | `"low"` | Quick analysis |
+| `ReasoningEffortMedium` | `"medium"` | Balanced (default) |
+| `ReasoningEffortHigh` | `"high"` | Deep reasoning |
+
+### Extended Thinking (Anthropic)
+
+For fine-grained control over Anthropic's extended thinking:
+
+```go
+budget := int64(10000)
+response, err := client.CreateChatCompletion(ctx, &omnillm.ChatCompletionRequest{
+    Model: "claude-sonnet-4-6",
+    Thinking: &omnillm.ThinkingConfig{
+        Type:         omnillm.ThinkingTypeEnabled,
+        BudgetTokens: &budget,
+    },
+    Messages: messages,
+})
+```
+
+### Provider Support
+
+| Provider | ReasoningEffort | ThinkingConfig |
+|----------|-----------------|----------------|
+| OpenAI | Yes | - |
+| Anthropic | Yes | Yes |
+| X.AI (Grok) | Yes | - |
+| GLM (Zhipu) | Yes | - |
+| Kimi (Moonshot) | Yes | - |
+| Qwen (Alibaba) | Yes | - |
+| Ollama | Yes | - |
+
+See [Reasoning Feature Guide](https://github.com/plexusone/omnillm-core/blob/main/docs/features/reasoning.md) for details.
+
+## 💬 Conversation Memory
 
 OmniLLM supports persistent conversation memory using any Key-Value Store that implements the [Sogo KVS interface](https://github.com/grokify/sogo/blob/master/database/kvs/definitions.go). This enables multi-turn conversations that persist across application restarts.
 
