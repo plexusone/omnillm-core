@@ -23,7 +23,7 @@
  [loc-svg]: https://tokei.rs/b1/github/plexusone/omnillm
  [repo-url]: https://github.com/plexusone/omnillm-core
  [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
- [license-url]: https://github.com/plexusone/omnillm-core/blob/master/LICENSE
+ [license-url]: https://github.com/plexusone/omnillm-core/blob/main/LICENSE
 
 OmniLLM is a unified Go SDK that provides a consistent interface for interacting with multiple Large Language Model (LLM) providers including OpenAI, Anthropic (Claude), Google Gemini, X.AI (Grok), GLM (Zhipu AI), Kimi (Moonshot AI), Qwen (Alibaba Cloud), and Ollama. It implements the Chat Completions API pattern and offers both synchronous and streaming capabilities. Additional providers like AWS Bedrock are available as [external modules](#external-providers).
 
