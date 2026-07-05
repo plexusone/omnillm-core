@@ -37,6 +37,7 @@ func (p *Provider) CreateChatCompletion(ctx context.Context, req *provider.ChatC
 		PresencePenalty:  req.PresencePenalty,
 		FrequencyPenalty: req.FrequencyPenalty,
 		Seed:             req.Seed,
+		ReasoningEffort:  req.ReasoningEffort,
 	}
 
 	// Convert messages
@@ -93,6 +94,7 @@ func (p *Provider) CreateChatCompletionStream(ctx context.Context, req *provider
 		PresencePenalty:  req.PresencePenalty,
 		FrequencyPenalty: req.FrequencyPenalty,
 		Seed:             req.Seed,
+		ReasoningEffort:  req.ReasoningEffort,
 	}
 
 	// Convert messages

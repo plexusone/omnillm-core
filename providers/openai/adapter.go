@@ -41,6 +41,7 @@ func (p *Provider) CreateChatCompletion(ctx context.Context, req *provider.ChatC
 		N:                req.N,
 		Logprobs:         req.Logprobs,
 		TopLogprobs:      req.TopLogprobs,
+		ReasoningEffort:  req.ReasoningEffort,
 	}
 
 	// Convert response format if provided
@@ -145,6 +146,7 @@ func (p *Provider) CreateChatCompletionStream(ctx context.Context, req *provider
 		N:                req.N,
 		Logprobs:         req.Logprobs,
 		TopLogprobs:      req.TopLogprobs,
+		ReasoningEffort:  req.ReasoningEffort,
 	}
 
 	// Convert response format if provided

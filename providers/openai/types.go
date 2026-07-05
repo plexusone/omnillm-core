@@ -20,6 +20,7 @@ type Request struct {
 	ResponseFormat   *ResponseFormat `json:"response_format,omitempty"`
 	Logprobs         *bool           `json:"logprobs,omitempty"`
 	TopLogprobs      *int            `json:"top_logprobs,omitempty"`
+	ReasoningEffort  *string         `json:"reasoning_effort,omitempty"` // "none", "low", "medium", "high"
 }
 
 // Tool represents a tool that can be called

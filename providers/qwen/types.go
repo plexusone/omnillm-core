@@ -13,6 +13,7 @@ type Request struct {
 	PresencePenalty  *float64  `json:"presence_penalty,omitempty"`
 	FrequencyPenalty *float64  `json:"frequency_penalty,omitempty"`
 	Seed             *int      `json:"seed,omitempty"`
+	ReasoningEffort  *string   `json:"reasoning_effort,omitempty"` // "none", "low", "medium", "high"
 }
 
 // Message represents a message in Qwen format (OpenAI-compatible)
