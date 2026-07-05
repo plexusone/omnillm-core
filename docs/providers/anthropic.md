@@ -50,3 +50,51 @@ messages := []omnillm.Message{
     {Role: omnillm.RoleUser, Content: "Hello!"},
 }
 ```
+
+## Extended Thinking
+
+Anthropic Claude models support extended thinking for complex reasoning tasks. Use the `Thinking` field for native control:
+
+```go
+budget := int64(8192)
+response, err := client.CreateChatCompletion(ctx, &omnillm.ChatCompletionRequest{
+    Model: omnillm.ModelClaudeSonnet4,
+    Thinking: &omnillm.ThinkingConfig{
+        Type:         omnillm.ThinkingTypeEnabled,
+        BudgetTokens: &budget,
+    },
+    Messages: []omnillm.Message{
+        {Role: omnillm.RoleUser, Content: "Analyze this complex scenario..."},
+    },
+})
+```
+
+### ThinkingType Values
+
+| Constant | Value | Description |
+|----------|-------|-------------|
+| `omnillm.ThinkingTypeEnabled` | `"enabled"` | Enable thinking with explicit budget |
+| `omnillm.ThinkingTypeDisabled` | `"disabled"` | Disable thinking |
+| `omnillm.ThinkingTypeAdaptive` | `"adaptive"` | Let the model decide |
+
+### Using ReasoningEffort
+
+For cross-provider compatibility, you can also use `ReasoningEffort`, which maps to Anthropic thinking:
+
+| ReasoningEffort | Anthropic Behavior |
+|-----------------|-------------------|
+| `"none"` | Thinking disabled |
+| `"low"` | Adaptive thinking |
+| `"medium"` | Adaptive thinking |
+| `"high"` | Enabled with budget derived from MaxTokens |
+
+```go
+effort := omnillm.ReasoningEffortHigh
+response, err := client.CreateChatCompletion(ctx, &omnillm.ChatCompletionRequest{
+    Model:           omnillm.ModelClaudeSonnet4,
+    ReasoningEffort: &effort,
+    Messages:        messages,
+})
+```
+
+See [Reasoning Feature Guide](../features/reasoning.md) for cross-provider usage.

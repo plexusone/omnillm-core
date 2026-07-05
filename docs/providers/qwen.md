@@ -100,6 +100,39 @@ Qwen models have wide availability including US regions:
 | `qwen-flash` | International, US, China |
 | `qwen-max` | International, China |
 
+## Reasoning
+
+Qwen models support the `reasoning_effort` parameter (OpenAI-compatible):
+
+```go
+effort := omnillm.ReasoningEffortHigh
+response, err := client.CreateChatCompletion(ctx, &omnillm.ChatCompletionRequest{
+    Model:           "qwq-plus",
+    ReasoningEffort: &effort,
+    Messages: []omnillm.Message{
+        {Role: omnillm.RoleUser, Content: "Solve this complex problem..."},
+    },
+})
+```
+
+### ReasoningEffort Values
+
+| Constant | Value | Description |
+|----------|-------|-------------|
+| `omnillm.ReasoningEffortNone` | `"none"` | Disable reasoning |
+| `omnillm.ReasoningEffortLow` | `"low"` | Light reasoning |
+| `omnillm.ReasoningEffortMedium` | `"medium"` | Moderate reasoning |
+| `omnillm.ReasoningEffortHigh` | `"high"` | Deep reasoning |
+
+### Reasoning-Capable Models
+
+- `qwq-plus` - Deep reasoning with extended chain-of-thought
+- `qwq-32b` - Open-source 32B reasoning model
+- `qwen3-max` - Flagship with thinking capability
+- Models with "thinking" in the name
+
+See [Reasoning Feature Guide](../features/reasoning.md) for cross-provider usage.
+
 ## API Documentation
 
 - [Qwen Models](https://help.aliyun.com/zh/model-studio/getting-started/models)

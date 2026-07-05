@@ -104,6 +104,38 @@ resp, err := embeddingProvider.CreateEmbedding(ctx, &provider.EmbeddingRequest{
 
 See [Embeddings Feature Guide](../features/embeddings.md) for more details.
 
+## Reasoning
+
+OpenAI reasoning models (o1, o3 series) support the `reasoning_effort` parameter to control thinking depth:
+
+```go
+effort := omnillm.ReasoningEffortHigh
+response, err := client.CreateChatCompletion(ctx, &omnillm.ChatCompletionRequest{
+    Model:           "o1-preview",
+    ReasoningEffort: &effort,
+    Messages: []omnillm.Message{
+        {Role: omnillm.RoleUser, Content: "Solve this complex problem..."},
+    },
+})
+```
+
+### ReasoningEffort Values
+
+| Constant | Value | Description |
+|----------|-------|-------------|
+| `omnillm.ReasoningEffortNone` | `"none"` | Disable reasoning |
+| `omnillm.ReasoningEffortLow` | `"low"` | Light reasoning |
+| `omnillm.ReasoningEffortMedium` | `"medium"` | Moderate reasoning |
+| `omnillm.ReasoningEffortHigh` | `"high"` | Deep reasoning |
+
+### Reasoning-Capable Models
+
+- `o1-preview` - Most capable reasoning model
+- `o1-mini` - Faster, cost-effective reasoning
+- `o3-mini` - Latest compact reasoning model
+
+See [Reasoning Feature Guide](../features/reasoning.md) for cross-provider usage.
+
 ## Custom Endpoint
 
 Use a custom OpenAI-compatible endpoint:

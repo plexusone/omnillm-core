@@ -81,6 +81,37 @@ for {
 }
 ```
 
+## Reasoning
+
+Kimi models support the `reasoning_effort` parameter (OpenAI-compatible):
+
+```go
+effort := omnillm.ReasoningEffortHigh
+response, err := client.CreateChatCompletion(ctx, &omnillm.ChatCompletionRequest{
+    Model:           "kimi-k2-thinking",
+    ReasoningEffort: &effort,
+    Messages: []omnillm.Message{
+        {Role: omnillm.RoleUser, Content: "Solve this complex problem..."},
+    },
+})
+```
+
+### ReasoningEffort Values
+
+| Constant | Value | Description |
+|----------|-------|-------------|
+| `omnillm.ReasoningEffortNone` | `"none"` | Disable reasoning |
+| `omnillm.ReasoningEffortLow` | `"low"` | Light reasoning |
+| `omnillm.ReasoningEffortMedium` | `"medium"` | Moderate reasoning |
+| `omnillm.ReasoningEffortHigh` | `"high"` | Deep reasoning |
+
+### Reasoning-Capable Models
+
+- `kimi-k2-thinking` - Long-term thinking with multi-step tool usage
+- `kimi-k2-thinking-turbo` - High-speed thinking model
+
+See [Reasoning Feature Guide](../features/reasoning.md) for cross-provider usage.
+
 ## API Documentation
 
 - [Kimi Models](https://platform.moonshot.cn/docs/api/chat)

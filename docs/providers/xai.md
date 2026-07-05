@@ -40,3 +40,34 @@ response, err := client.CreateChatCompletion(ctx, &omnillm.ChatCompletionRequest
     PresencePenalty: &[]float64{0.5}[0],
 })
 ```
+
+## Reasoning
+
+X.AI Grok models support the `reasoning_effort` parameter (OpenAI-compatible):
+
+```go
+effort := omnillm.ReasoningEffortHigh
+response, err := client.CreateChatCompletion(ctx, &omnillm.ChatCompletionRequest{
+    Model:           omnillm.ModelGrok4Fast,
+    ReasoningEffort: &effort,
+    Messages: []omnillm.Message{
+        {Role: omnillm.RoleUser, Content: "Solve this complex problem..."},
+    },
+})
+```
+
+### ReasoningEffort Values
+
+| Constant | Value | Description |
+|----------|-------|-------------|
+| `omnillm.ReasoningEffortNone` | `"none"` | Disable reasoning |
+| `omnillm.ReasoningEffortLow` | `"low"` | Light reasoning |
+| `omnillm.ReasoningEffortMedium` | `"medium"` | Moderate reasoning |
+| `omnillm.ReasoningEffortHigh` | `"high"` | Deep reasoning |
+
+### Reasoning-Capable Models
+
+- `grok-4.1-fast` - Supports reasoning mode
+- `grok-4-fast` - Supports reasoning mode
+
+See [Reasoning Feature Guide](../features/reasoning.md) for cross-provider usage.

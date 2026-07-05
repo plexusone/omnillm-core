@@ -63,3 +63,25 @@ Gemini 1.5 Pro supports up to 2 million tokens of context, making it ideal for:
 - Long document analysis
 - Large codebase understanding
 - Extended conversation history
+
+## Reasoning and Thinking
+
+Gemini supports extended thinking via `ThinkingLevel` and `ThinkingBudget`. Use the unified `ReasoningEffort` field for cross-provider compatibility:
+
+```go
+effort := omnillm.ReasoningEffortHigh
+response, err := client.CreateChatCompletion(ctx, &omnillm.ChatCompletionRequest{
+    Model:           "gemini-2.0-flash-thinking",
+    ReasoningEffort: &effort,
+    Messages:        messages,
+})
+```
+
+| ReasoningEffort | Gemini ThinkingLevel |
+|-----------------|---------------------|
+| `"none"` | `MINIMAL` |
+| `"low"` | `LOW` |
+| `"medium"` | `MEDIUM` |
+| `"high"` | `HIGH` |
+
+See [Reasoning Feature Guide](../features/reasoning.md) for details.

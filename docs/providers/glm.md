@@ -67,6 +67,39 @@ for {
 }
 ```
 
+## Reasoning
+
+GLM models support the `reasoning_effort` parameter (OpenAI-compatible):
+
+```go
+effort := omnillm.ReasoningEffortHigh
+response, err := client.CreateChatCompletion(ctx, &omnillm.ChatCompletionRequest{
+    Model:           "glm-5",
+    ReasoningEffort: &effort,
+    Messages: []omnillm.Message{
+        {Role: omnillm.RoleUser, Content: "Solve this complex problem..."},
+    },
+})
+```
+
+### ReasoningEffort Values
+
+| Constant | Value | Description |
+|----------|-------|-------------|
+| `omnillm.ReasoningEffortNone` | `"none"` | Disable reasoning |
+| `omnillm.ReasoningEffortLow` | `"low"` | Light reasoning |
+| `omnillm.ReasoningEffortMedium` | `"medium"` | Moderate reasoning |
+| `omnillm.ReasoningEffortHigh` | `"high"` | Deep reasoning |
+
+### Reasoning-Capable Models
+
+- `glm-5` - Flagship MoE model with forced thinking
+- `glm-4.7` - Premium model with Interleaved Thinking
+- `glm-4.7-flash` - Free SOTA model with hybrid thinking
+- `glm-4.6` - Balanced model with auto-thinking
+
+See [Reasoning Feature Guide](../features/reasoning.md) for cross-provider usage.
+
 ## API Documentation
 
 - [GLM Models](https://bigmodel.cn/dev/api/normal-model/glm-4)
