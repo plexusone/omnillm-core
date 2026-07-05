@@ -6,6 +6,25 @@
   "commitConvention": "conventional",
   "releases": [
     {
+      "version": "v0.18.0",
+      "date": "2026-07-05",
+      "highlights": [
+        { "description": "**Reasoning & Extended Thinking**: Unified `ReasoningEffort` and `ThinkingConfig` fields for controlling model reasoning depth across all providers" }
+      ],
+      "added": [
+        { "description": "`ReasoningEffort` field in `ChatCompletionRequest` for controlling reasoning depth (`none`, `low`, `medium`, `high`)", "commit": "cfb8899" },
+        { "description": "`ThinkingConfig` type with `Type` and `BudgetTokens` fields for Anthropic extended thinking support", "commit": "cfb8899" },
+        { "description": "`Thinking` field in `ChatCompletionRequest` for fine-grained thinking control", "commit": "cfb8899" },
+        { "description": "Reasoning effort constants: `ReasoningEffortNone`, `ReasoningEffortLow`, `ReasoningEffortMedium`, `ReasoningEffortHigh`", "commit": "cfb8899" },
+        { "description": "Thinking type constants: `ThinkingTypeEnabled`, `ThinkingTypeDisabled`, `ThinkingTypeAdaptive`", "commit": "cfb8899" },
+        { "description": "`reasoning_effort` support in OpenAI, Anthropic, X.AI, GLM, Kimi, Qwen, and Ollama thin providers", "commit": "3b4e7c7" }
+      ],
+      "documentation": [
+        { "description": "Reasoning and Extended Thinking feature guide (`docs/features/reasoning.md`)", "commit": "61f4fc9" },
+        { "description": "Provider documentation updated with reasoning support details for all 8 providers", "commit": "c443b41" }
+      ]
+    },
+    {
       "version": "v0.17.0",
       "date": "2026-06-15",
       "highlights": [
