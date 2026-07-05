@@ -27,6 +27,9 @@ type (
 
 	// Response format
 	ResponseFormat = provider.ResponseFormat
+
+	// Thinking configuration
+	ThinkingConfig = provider.ThinkingConfig
 )
 
 // Capabilities describes the features supported by a provider.
@@ -61,6 +64,21 @@ const (
 	RoleUser      = provider.RoleUser
 	RoleAssistant = provider.RoleAssistant
 	RoleTool      = provider.RoleTool
+)
+
+// ReasoningEffort constants for OpenAI-compatible providers
+const (
+	ReasoningEffortNone   = provider.ReasoningEffortNone
+	ReasoningEffortLow    = provider.ReasoningEffortLow
+	ReasoningEffortMedium = provider.ReasoningEffortMedium
+	ReasoningEffortHigh   = provider.ReasoningEffortHigh
+)
+
+// ThinkingType constants for Anthropic-style extended thinking
+const (
+	ThinkingTypeEnabled  = provider.ThinkingTypeEnabled
+	ThinkingTypeDisabled = provider.ThinkingTypeDisabled
+	ThinkingTypeAdaptive = provider.ThinkingTypeAdaptive
 )
 
 // ModelInfo represents information about a model

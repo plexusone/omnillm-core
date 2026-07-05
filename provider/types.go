@@ -48,16 +48,47 @@ type ChatCompletionRequest struct {
 	User             *string         `json:"user,omitempty"`
 	Tools            []Tool          `json:"tools,omitempty"`
 	ToolChoice       any             `json:"tool_choice,omitempty"`
-	Seed             *int            `json:"seed,omitempty"`            // OpenAI, X.AI - for reproducible outputs
-	N                *int            `json:"n,omitempty"`               // OpenAI - number of completions
-	ResponseFormat   *ResponseFormat `json:"response_format,omitempty"` // OpenAI, Gemini - JSON mode
-	Logprobs         *bool           `json:"logprobs,omitempty"`        // OpenAI - return log probabilities
-	TopLogprobs      *int            `json:"top_logprobs,omitempty"`    // OpenAI - number of top logprobs
+	Seed             *int            `json:"seed,omitempty"`             // OpenAI, X.AI - for reproducible outputs
+	N                *int            `json:"n,omitempty"`                // OpenAI - number of completions
+	ResponseFormat   *ResponseFormat `json:"response_format,omitempty"`  // OpenAI, Gemini - JSON mode
+	Logprobs         *bool           `json:"logprobs,omitempty"`         // OpenAI - return log probabilities
+	TopLogprobs      *int            `json:"top_logprobs,omitempty"`     // OpenAI - number of top logprobs
+	ReasoningEffort  *string         `json:"reasoning_effort,omitempty"` // OpenAI, X.AI - "none", "low", "medium", "high"
+	Thinking         *ThinkingConfig `json:"thinking,omitempty"`         // Anthropic - extended thinking configuration
 }
 
 // ResponseFormat specifies the format of the response
 type ResponseFormat struct {
 	Type string `json:"type"` // "text" or "json_object"
+}
+
+// ReasoningEffort values for OpenAI-compatible providers.
+// Use these with the ReasoningEffort field in ChatCompletionRequest.
+const (
+	ReasoningEffortNone   = "none"   // Disables reasoning entirely
+	ReasoningEffortLow    = "low"    // Light reasoning (default for reasoning models)
+	ReasoningEffortMedium = "medium" // Moderate reasoning for complex tasks
+	ReasoningEffortHigh   = "high"   // Deep reasoning for demanding problems
+)
+
+// ThinkingType values for Anthropic-style extended thinking.
+// Use these with ThinkingConfig.Type.
+const (
+	ThinkingTypeEnabled  = "enabled"  // Enable thinking with explicit BudgetTokens
+	ThinkingTypeDisabled = "disabled" // Disable thinking entirely
+	ThinkingTypeAdaptive = "adaptive" // Let the model decide thinking depth
+)
+
+// ThinkingConfig configures Anthropic-style extended thinking.
+// For Anthropic models that support extended thinking (Claude with thinking capability).
+type ThinkingConfig struct {
+	// Type specifies the thinking mode: "enabled", "disabled", or "adaptive".
+	Type string `json:"type"`
+
+	// BudgetTokens is the token budget for thinking.
+	// Required when Type is "enabled".
+	// Minimum 1024, must be less than max_tokens.
+	BudgetTokens *int64 `json:"budget_tokens,omitempty"`
 }
 
 // Tool represents a tool that can be called
